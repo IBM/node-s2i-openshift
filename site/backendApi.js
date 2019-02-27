@@ -1,5 +1,5 @@
 var request = require('request');
-var API_URL = ""; // Include API URL
+var API_URL = "https://api.us.apiconnect.ibmcloud.com/spbodieusibmcom-kenishia/sb/";
 
 function getPatientInfo(patientID) {
 	return new Promise(function(resolve, reject) {
@@ -38,7 +38,7 @@ function getPatientMedications(patientID) {
 	 			for (var i = 0, len = medicationData.length; i < len; i++) {
 	 				medications.push(medicationData[i]["CA_DRUG_NAME"])
 	 			}
-	    		
+
 				return resolve(medications);
 	  		} else {
 	  			return resolve(medications);
@@ -100,7 +100,7 @@ function getPatientMeasurements(patientID) {
 	 						break;
 	 				}
 	 			}
-	    		
+
 				return resolve(measurements);
 	  		} else {
 	  			return resolve(measurements);
@@ -123,9 +123,9 @@ function patientLogin(username, password) {
 			}
 		});
 	})
-} 
+}
 
-function getAge(dateString) 
+function getAge(dateString)
 {
     var today = new Date();
     var birthDate = new Date(dateString);

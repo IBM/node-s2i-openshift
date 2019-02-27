@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body onload="retrieveMeasurementInformation()">
   <div class="container">
     <div class="banner">
       <div class="control">
@@ -22,19 +22,19 @@
           <div class="summit">Summit Health</div>
         </div>
         <menu class="menu">
-          <a class="dimmed" href="./index.html"><menuitem>information</menuitem></a>
-          <a class="dimmed" href="./measurements.html"><menuitem>measurements</menuitem></a>
-          <a class="lit" href="./labs.html"><menuitem>lab results</menuitem></a>
-            <a class="dimmed" href="./about.html"><menuitem class="dimmed">about</menuitem></a>
+          <a class="dimmed" href="./index.html">
+            <menuitem>information</menuitem></a>
+          <a class="dimmed" href="./measurements.html">
+            <menuitem>measurements</menuitem></a>
+          <a class="dimmed" href="./labs.html">
+            <menuitem>lab results</menuitem></a>
+              <a class="dimmed" href="./about.html"><menuitem class="lit">about</menuitem></a>
         </menu>
-        <div class="account">ralph/logout</div>
+        <div class="account" id="logout"></div>
       </div>
     </div>
 
     <div class="boxes">
-
-
-
 
 
 
@@ -44,6 +44,6 @@
 
 </body>
 
-<script src="src/scripts.js"></script>
+<script src="src/measurementsController.js"></script>
 
 </html>

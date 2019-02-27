@@ -15,8 +15,8 @@ body, html {
 }
 
 .control {
-  max-width: 1000px;
-  min-width: 1000px;
+  max-width: 840px;
+  min-width: 840px;
   justify-content: space-between;
   align-items: center;
   display: flex;
@@ -65,8 +65,13 @@ body, html {
 }
 
 .account {
-  font-weight: normal;
+  font-weight: bold;
   font-size: 14px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: white;
 }
 
 menuitem {
@@ -327,6 +332,10 @@ height:224px;
   flex-direction: row;
   padding: 20px;
   font-size: 14px;
+}
+
+a{
+  text-decoration: none;
 }
 
 .smokerlabel{
