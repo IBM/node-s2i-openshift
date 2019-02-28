@@ -352,8 +352,8 @@ a {
 
 .architecture{width:860px;
 height:600px;
-background:aliceblue;display: flex;flex-direction: row;margin-top:50px;}
+display: flex;flex-direction: row;margin-top:50px;}
 
 .canvas{height:600px;width:600px}
 
-.details{height:600px;width:260px;}
+.details{height:600px;width:260px;background:aliceblue;}
