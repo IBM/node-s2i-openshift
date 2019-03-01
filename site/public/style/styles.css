@@ -350,10 +350,29 @@ a {
   margin-left: 10px;
 }
 
-.architecture{width:860px;
-height:700px;
-display: flex;flex-direction: row;margin-top:50px;}
+.architecture {
+  width: 860px;
+  height: 700px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
 
-.canvas{height:600px;width:600px}
+.canvas {
+  height: 600px;
+  width: 600px;
+}
 
-.archdetails{height:600px;width:260px;background:aliceblue;}
+.archdetails {
+  height: 700px;
+  width: 260px;
+  background: white;
+  border: 1px dashed #7ACCBB;
+}
+
+.archtitle {
+  font-size: 13px;
+    font-weight: bold;
+    margin: 10px;
+    color: #F88F58;
+}
