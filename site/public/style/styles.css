@@ -364,15 +364,90 @@ a {
 }
 
 .archdetails {
-  height: 700px;
-  width: 260px;
+  height: 650px;
+  width: 230px;
+  margin-left: 20px;
   background: white;
-  border: 1px dashed #7ACCBB;
+  border: 1px solid #eaf8f9;
+  display: flex;
+  flex-direction: column;
 }
 
 .archtitle {
   font-size: 13px;
-    font-weight: bold;
-    margin: 10px;
-    color: #F88F58;
+  font-weight: bold;
+  /* margin: 10px; */
+  color: #0F4C81;
+  padding: 10px;
+  background: #eaf8f9;
+  min-height: 40px;
+}
+
+.archsubtitle {
+  font-size: 11px;
+  font-weight: normal;
+  margin: 10px;
+  color: #0F4C81;
+}
+
+.archtechlisttile {
+  font-size: 12px;
+  font-weight: bold;
+  /* margin: 10px; */
+  color: #0F4C81;
+  border-top: 1px solid #eaf8f9;
+  padding: 5px;
+  padding-left: 10px;
+  background: #eaf8f9;
+  line-height: 18px;
+  /* padding-left: 10px; */
+}
+
+.archtechlist {
+  font-size: 11px;
+  font-weight: normal;
+  /* margin-left: -10px; */
+  color: #0F4C81;
+  line-height: 18px;
+  border-bottom: 1px solid #eaf8f9;
+  border-top: 1px solid #eaf8f9;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  min-height: 100px;
+}
+
+.archtechlink {
+  font-size: 11px;
+  font-weight: normal;
+  margin: 10px;
+  color: #0F4C81;
+}
+
+.archtechdetails {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 10px;
+  color: #0F4C81;
+  line-height: 18px;
+  min-height: 280px;
+}
+
+.archlink {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.archbutton{
+  background: #00ABC0;
+border: none;
+height: 30px;
+width: 100px;
+color: white;
+font-weight: bold;
+border-radius: 4px;
 }

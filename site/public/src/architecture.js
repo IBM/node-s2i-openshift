@@ -56,19 +56,20 @@ if (c != undefined) {
     if (x > 5 && x < 205) {
       if (y > 50 && y < 170) {
         console.log('node app')
+        displayInfo(modernAppInfo)
+      }
+    }else{
 
-
-        element.innerHTML = "Writing a Modern Web UI using existing System Z application"
-
+      if (x > 355 && x < 555) {
+        if (y > 50 && y < 410) {
+          console.log('analytics app')
+          displayInfo(analyticsInfo)
+        }
+      }else{
+          displayInfo(generalInfo)
       }
     }
 
-    if (x > 355 && x < 555) {
-      if (y > 50 && y < 410) {
-        console.log('node app')
-        element.innerHTML = "Creating a health data analytics/ML app that integrates with historic data"
-      }
-    }
 
 
     // ctx.clearRect(0, 0, canvas.width, canvas.height); // for demo
@@ -83,6 +84,34 @@ if (c != undefined) {
     //   ctx.fill();
     // }
   }
+
+}
+
+
+function displayInfo(info){
+
+  var title = document.getElementById("archtitle");
+  title.innerHTML = info.title;
+
+  var subtitle = document.getElementById("subtitle");
+  subtitle.innerHTML = info.subtitle;
+
+  var description = document.getElementById("description");
+  description.innerHTML = info.description;
+
+  var techlist = document.getElementById("techlist");
+  techlist.innerHTML = ""
+
+  info.technologies.forEach(function(technology){
+
+    var li = document.createElement('li');
+    li.innerHTML = technology;
+    techlist.appendChild(li);
+  })
+
+  // var title = document.getElementById("archtitle");
+  // title.innerHTML = info.title;
+
 
 }
 
@@ -155,3 +184,27 @@ function drawzOS(label) {
   drawComponent(25, 400, "Machine Learning - Python");
   drawComponent(25, 480, "Patient Records - DB2");
 }
+
+var generalInfo = {
+  title:"Summit Health Software Architecture",
+  subtitle:"An Open Source Case Study",
+  description:"Summit Health is an experimental project, and open source reference architecture for integrating a legacy data system, with modern cloud technology.",
+  technologies:["IBM zSystems","IBM Cloud Container Service","IBM Cloud Private","IBM Watson Data Platform","IBM API Connect"],
+  pattern:""
+}
+
+var modernAppInfo = {  title:"Writing a Modern Web UI using existing System Z application",
+  subtitle:"Agile UI development",
+  description:"In this pattern, we show how to rapidly prototype a new web UI built on Node JS, using HTML5 technology, surfacing legacy data in fresh ways. ",
+  technologies:["IBM zSystems","IBM Cloud Private","IBM API Connect"],
+  pattern:""}
+
+var analyticsInfo = {  title:"A health data analytics app that integrates with historic data",
+  subtitle:"Creating a full stack big data app",
+  description:"In this pattern, we build a full stack containerized application that delves into big data, using Node JS and the Watson Data Platform.",
+  technologies:["IBM zSystems","IBM Cloud Container Service","IBM API Connect"],
+  pattern:""}
+
+var machinelearning = {}
+
+var datasythesis = {}
