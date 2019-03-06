@@ -1,11 +1,38 @@
-<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
-<link href='./style/login.css' rel='stylesheet' type='text/css'>
-<form method="post" action="index.html">
-<div class="box">
-<h1>Summit Health</h1>
-<input type="email" id="username" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
-<input type="password" id="password" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
-<a href="#" onclick="login()"><div id="btn2">Sign In</div></a> <!-- End Btn2 -->
-</div> <!-- End Box -->
-</form>
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Summit Health</title>
+  <meta name="description" content="Summit Health Site">
+  <meta name="Anton McConville" content="Summit Health">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+  <link href='./style/login.css' rel='stylesheet' type='text/css'>
+  <link rel="icon" type="image/png" href="images/summitlogo@2x.png">
+</head>
+
+<body>
+  <div class="logincontainer">
+
+    <div class="pillar">
+      <div class="loginlogo"><img class="summitlogo" src="images/summitlogo.svg"></div>
+        <div class="summitname">Summit Health</div>
+        <div class="disclaimer">Summit Heatlh is a fictional health data and software demonstration. <b>All data within the system is simulated</b>. Any resemblance to a real person is entirely coincidental.</div>
+        <div class="loginform">
+          <form method="post" action="index.html">
+            <div class="box">
+              <h1>Login</h1>
+              <input type="email" id="username" name="email" value="username" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
+              <input type="password" id="password" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
+              <a href="#" onclick="login()">
+                <div id="btn2">Sign In</div>
+              </a> <!-- End Btn2 -->
+            </div> <!-- End Box -->
+          </form>
+          </div>
+    </div>
+</body>
 <script src="src/loginController.js"></script>
+</html>
