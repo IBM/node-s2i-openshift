@@ -24,6 +24,37 @@ body, html {
   color: white;
 }
 
+.guide{
+  display: flex;
+  flex-direction: row;
+  width:860px;
+}
+
+.hero{
+  height: 60px;
+width: 160px;
+margin-top: 40px;
+font-size: 14px;
+color: #0F4C81;
+padding: 10px;
+background: #eaf8f9;
+
+    border: 1px solid #00ABC0;
+}
+
+.herotitle{
+  font-size: 13px;
+  font-weight: bold;
+  color: #0F4C81;
+}
+
+.heroinstruction{
+  margin-top:10px;
+  font-size: 13px;
+  font-weight: normal;
+  color: #0F4C81;
+}
+
 .banner {
   height: 60px;
   width: 100%;
@@ -355,7 +386,8 @@ a {
   height: 700px;
   display: flex;
   flex-direction: row;
-  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px dashed #00ABC0;
 }
 
 .canvas {
@@ -364,7 +396,7 @@ a {
 }
 
 .archdetails {
-  height: 650px;
+  height: 550px;
   width: 230px;
   margin-left: 20px;
   background: white;
@@ -432,7 +464,7 @@ a {
   margin: 10px;
   color: #0F4C81;
   line-height: 18px;
-  min-height: 280px;
+  min-height: 180px;
 }
 
 .archlink {
@@ -443,11 +475,57 @@ a {
 }
 
 .archbutton{
-  background: #00ABC0;
-border: none;
-height: 30px;
-width: 100px;
-color: white;
+    background: #00ABC0;
+  border: none;
+  height: 30px;
+  width: 100px;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.index{
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+}
+
+.item{
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  width:120px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.itemstep{
+  height: 40px;
+  text-align: center;
+  width: 40px;
+  background: #eaf8f9;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  color:#0F4C81;
+  font-size: 14px;
 font-weight: bold;
-border-radius: 4px;
+border:1px solid #00ABC0;
+}
+
+.itemtitle{
+  height: 60px;
+  text-align: center;
+  width: 100px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  font-size: 12px;
+  color:#0F4C81;
 }
