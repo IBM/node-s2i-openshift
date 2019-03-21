@@ -30,6 +30,24 @@ var analyticsInfo = {
   pattern: ""
 }
 
+var syntheaInfo = {
+  title: "Conditioning data on ZOS",
+  subtitle: "Data preparation from Synthea",
+  description: "In this pattern, we look at tips and tricks for conditioning big sets of generated data for storage on DB2/zOS.",
+  technologies: ["IBM zSystems", "IBM DB2"],
+  pattern: ""
+}
+
+var mlInfo = {
+  title: "Machine learning with big data and zOS",
+  subtitle: "Jupiter Notebooks and zOS",
+  description: "In this pattern, we look at tips and tricks for working with data science and DB2/zOS.",
+  technologies: ["IBM zSystems", "IBM DB2"],
+  pattern: ""
+}
+
+var chosenpattern = null;
+
 var c = document.getElementById("canvas");
 
 var AQUA = "#00ABC0";
@@ -37,7 +55,7 @@ var NAVY = "#0F4C81";
 var AQUALIGHT = "#99DDE5";
 var EXTRALIGHT = "#CCEEF2";
 var HIGHLIGHT = "#F88F58";
-var HIGHFILL =  "#fcddcc";
+var HIGHFILL = "#fcddcc";
 var HIGHCOMPONENTFILL = "#fab08a";
 
 var LOWFILL = "#e5f6f8";
@@ -53,93 +71,162 @@ if (c != undefined) {
   ctx.beginPath();
   ctx.stroke();
   ctx.lineWidth = 1.5;
-
   ctx.fillStyle = "#0F4C81";
   ctx.font = 'bold 12px sans-serif';
   ctx.fillText("Patient System", 5, 20);
   ctx.fillText("Analytics System", 455, 20);
   drawDefault();
-
   ctx.lineWidth = 1;
-
   drawConnections();
 
-  // fillStripes(ctx, 5, 50, 200, 120);
+  // c.onmousemove = mouseMove;
+}
 
 
-  c.onmousemove = function(e) {
-    // important: correct mouse position:
-    var rect = this.getBoundingClientRect(),
-      x = e.clientX - rect.left,
-      y = e.clientY - rect.top,
-      i = 0,
-      r;
+function mouseMove(e) {
+  // important: correct mouse position:
+  var rect = this.getBoundingClientRect(),
+    x = e.clientX - rect.left,
+    y = e.clientY - rect.top,
+    i = 0,
+    r;
 
-    var element = document.getElementById("archtitle");
-    // element.innerHTML = ""
+  var element = document.getElementById("archtitle");
+  // element.innerHTML = ""
 
-    var general = true;
+  var general = true;
 
-    if (x > 5 && x < 205 && y > 50 && y < 170) {
-      console.log('node app');
-      displayInfo(modernAppInfo);
-      drawNodeApp("CF - ICP", HIGHLIGHTED);
-      drawAPIConnect(HIGHLIGHTED);
-      drawzOS("z/OS", DIMMED);
-      drawContainer("IBM Container Service", DIMMED);
-      drawZOSConnect(HIGHLIGHTED);
-      drawPatientRecords(HIGHLIGHTED);
-      drawCobolProcessing(HIGHLIGHTED);
-      drawSynthea(DIMMED);
-      general = false;
-    }
+  if (x > 5 && x < 205 && y > 50 && y < 170) {
+    drawFrontEndPattern();
+    general = false;
+  }
 
-    /* Container Service */
+  /* Container Service */
 
-    if (x > 355 && x < 555 && y > 50 && y < 410) {
-      console.log('analytics app');
-      drawContainer("IBM Container Service", HIGHLIGHTED);
-      drawNodeApp("CF - ICP", DIMMED);
-      drawAPIConnect(HIGHLIGHTED);
-      drawzOS("z/OS", DIMMED);
-      drawZOSConnect(HIGHLIGHTED);
-      drawPatientRecords(HIGHLIGHTED);
-      drawCobolProcessing(HIGHLIGHTED);
-      drawSynthea(DIMMED);
+  if (x > 355 && x < 555 && y > 50 && y < 410) {
+    drawContainerServicePattern();
+    general = false;
+  }
 
-      displayInfo(analyticsInfo);
-      general = false;
-    }
+  /* Patient Records */
 
-    /* Patient Records */
+  if (x > 5 && x < 205 && y > 490 && y < 540) {
+    drawPatientRecordsPattern();
+    general = false;
+  }
 
-    if (x > 5 && x < 205 && y > 490 && y < 540) {
-        drawSynthea(HIGHLIGHTED);
-        drawNodeApp("CF - ICP", DIMMED);
-        drawZOSConnect(DIMMED);
-        drawContainer("IBM Container Service", DIMMED);
-        drawPatientRecords(HIGHLIGHTED);
-        drawAPIConnect(DIMMED);
-        general = false;
-    }
-
-    if (general === true) {
-      drawDefault();
-    }
+  if (general === true) {
+    drawDefault();
   }
 }
 
-function drawDefault(){
+function clearCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawFrontEndPattern(source) {
+
+  if (chosenpattern == null || chosenpattern != source) {
+
+    if(chosenpattern != null){
+      clearSelectedborder(chosenpattern);
+    }
+
+    chosenpattern = source;
+
+    clearCanvas();
+    console.log('node app');
+    displayInfo(modernAppInfo);
+    drawNodeApp("CF - ICP", HIGHLIGHTED);
+    drawAPIConnect(HIGHLIGHTED);
+    drawzOS(DIMMED);
+    drawContainer("IBM Container Service", DIMMED);
+    drawZOSConnect(HIGHLIGHTED);
+    drawPatientRecords(HIGHLIGHTED);
+    drawCobolProcessing(HIGHLIGHTED);
+    drawSynthea(DIMMED);
+
+    setSelectedborder(source);
+
+  } else {
+    clearSelectedborder(source);
+
+    chosenpattern = null;
+    drawDefault();
+  }
+}
+
+function drawDefault(source) {
+  clearCanvas();
   displayInfo(generalInfo)
   drawContainer("IBM Container Service", NORMAL);
   drawNodeApp("CF - ICP", NORMAL);
   drawAPIConnect(NORMAL)
-  drawzOS("z/OS", NORMAL);
+  drawzOS(NORMAL);
   drawSynthea(NORMAL);
 }
 
 
-function drawConnections(state){
+function drawContainerServicePattern(source) {
+  clearCanvas();
+  console.log('analytics app');
+  drawContainer("IBM Container Service", HIGHLIGHTED);
+  drawNodeApp("CF - ICP", DIMMED);
+  drawAPIConnect(HIGHLIGHTED);
+  drawzOS(HIGHLIGHTED);
+  drawZOSConnect(HIGHLIGHTED);
+  drawPatientRecords(HIGHLIGHTED);
+  drawCobolProcessing(HIGHLIGHTED);
+  drawMachineLearning(DIMMED);
+  drawSynthea(DIMMED);
+  displayInfo(analyticsInfo);
+}
+
+function setSelectedborder(source){
+  source.style.border = "1px solid " + HIGHLIGHT;
+}
+
+function clearSelectedborder(source){
+  source.style.border = "1px solid white";
+
+  // source.onhover = function()
+  // {
+  //     source.style.border = "1px dashed " + HIGHLIGHT;
+  // }
+}
+
+function drawPatientRecordsPattern(source) {
+
+  if (chosenpattern == null || chosenpattern != source) {
+
+    if(chosenpattern != null){
+      clearSelectedborder(chosenpattern);
+    }
+
+    chosenpattern = source;
+
+    clearCanvas();
+    drawzOS(HIGHLIGHTED);
+    drawSynthea(HIGHLIGHTED);
+    drawNodeApp("CF - ICP", DIMMED);
+    drawZOSConnect(DIMMED);
+    drawMachineLearning(DIMMED);
+    drawContainer("IBM Container Service", DIMMED);
+    drawCobolProcessing(DIMMED)
+    drawPatientRecords(HIGHLIGHTED);
+    drawAPIConnect(DIMMED);
+    displayInfo(syntheaInfo);
+
+    setSelectedborder(source);
+
+  } else {
+    clearSelectedborder(source);
+    chosenpattern = null;
+    drawDefault();
+  }
+}
+
+function drawConnections(state) {
   ctx.strokeStyle = AQUA;
   ctx.beginPath();
 
@@ -166,42 +253,45 @@ function drawConnections(state){
   ctx.stroke();
 }
 
-function drawPatientRecords(state){
+function drawPatientRecords(state) {
   drawComponent(25, 400, "Patient Records - DB2", state);
 }
 
-function drawSynthea(state){
+function drawSynthea(state) {
   drawIsland(5, 490, 200, 50, "Synthea - Data Generation", state);
 }
 
-function drawZOSConnect(state){
+function drawZOSConnect(state) {
   drawComponent(25, 220, "z/OS Connect", state);
 }
 
-function drawAPIConnect(state){
+function drawAPIConnect(state) {
   drawIsland(230, 130, 100, 100, "API Connect", state);
 }
 
-function drawCobolProcessing(state){
-    drawComponent(25, 280, "Cobol processing", state);
+function drawCobolProcessing(state) {
+  drawComponent(25, 280, "Cobol processing", state);
 }
 
-function drawAnalyticsUI(state){
+function drawAnalyticsUI(state) {
   drawComponent(375, 90, "Analytics UI - Node JS", state);
 }
 
-function drawAnalyticsApp(state){
+function drawAnalyticsApp(state) {
   drawComponent(375, 150, "Analytics App - Node JS", state);
 }
 
-function drawAnalyticsAPI(state){
+function drawAnalyticsAPI(state) {
   drawComponent(375, 210, "Analytics API - Node JS", state);
 }
 
-function drawDataLake(state){
+function drawDataLake(state) {
   drawComponent(375, 270, "Allergy data lake - Mongo", state);
 }
 
+function drawMachineLearning(state) {
+  drawComponent(25, 340, "Machine Learning - Python", state);
+}
 
 function displayInfo(info) {
 
@@ -225,110 +315,6 @@ function displayInfo(info) {
   })
 }
 
-/* only three possibilities - rectangle is wider than it tall, taller than it is wide, or square
-
- - in all cases start the same way - but then decide - */
-
-
-function fillStripes(context, x, y, width, height) {
-  var color1 = "#FFFFFF", color2 = "#CCEEF2";
-
-  var starty = y;
-  var endx = x;
-  var startx = x;
-
-  var gap = 5;
-
-  do{
-    starty = starty + gap;
-    endx = endx + gap;
-    context.beginPath();
-    context.strokeStyle = "white";
-    context.lineWidth = 1.5;
-    context.lineCap = 'round';
-    context.moveTo( x, starty);
-    context.lineTo( endx, y);
-    context.stroke();
-
-  }while( starty < height+y && endx+5 < width+x)
-
-  if(width > height){
-
-    endx = height + gap;
-
-    do{
-      starty = height+y;
-      startx = startx + gap;
-      endx = endx + gap;
-      context.beginPath();
-      context.strokeStyle = "white";
-      context.lineWidth = 1.5;
-      context.lineCap = 'round';
-      context.moveTo( startx, starty);
-      context.lineTo( endx, y);
-      context.stroke();
-
-    }while(endx + gap < width+x)
-
-    endx = x + width
-    endy = y - gap;
-    starty = y + height;
-
-    do{
-      startx = startx + gap;
-      endy = endy + gap;
-      context.beginPath();
-      context.strokeStyle = "white";
-      context.lineWidth = 1.5;
-      context.lineCap = 'round';
-      context.moveTo( startx, starty);
-      context.lineTo( endx, endy);
-      context.stroke();
-
-    }while( endy + gap < height + y )
-
-  }
-
-  if(height > width){
-
-    endx = width + x;
-    endy = y-gap;
-    startx = x;
-    starty = width+y-gap;
-
-    do{
-      starty = starty + gap;
-      endy = endy + gap;
-      context.beginPath();
-      context.strokeStyle = "white";
-      context.lineWidth = 1.5;
-      context.lineCap = 'round';
-      context.moveTo( startx, starty);
-      context.lineTo( endx, endy);
-      context.stroke();
-
-    }while(starty + gap < height+y)
-
-    starty = y + height-gap;
-    startx = x;
-    endx = x + width;
-    // endy = y + width-gap;
-
-    do{
-      startx = startx + gap;
-      endy = endy + gap;
-      context.beginPath();
-      context.strokeStyle = "white";
-      context.lineWidth = 1.5;
-      context.lineCap = 'round';
-      context.moveTo( startx, starty);
-      context.lineTo( endx, endy);
-      context.stroke();
-
-    }while(startx + gap < width + x)
-
-  }
-}
 
 function drawIsland(x, y, width, height, label, state) {
 
@@ -414,7 +400,7 @@ function drawContainer(label, state) {
   drawDataLake(state);
 }
 
-function setColors(state){
+function setColors(state) {
 
   switch (state) {
 
@@ -438,7 +424,6 @@ function setColors(state){
       ctx.strokeStyle = AQUA
       break;
   }
-
 }
 
 function drawSubsystem(x, y, width, height, label, state) {
@@ -462,16 +447,115 @@ function drawSubsystem(x, y, width, height, label, state) {
   ctx.fillText(label, x + 20, y + 25);
 }
 
-function drawzOS(label, state) {
+function drawzOS(state) {
+  var label = "z/OS";
   drawSubsystem(5, 180, 200, 280, label, state);
   drawZOSConnect(state);
-  drawCobolProcessing(state)
-  drawComponent(25, 340, "Machine Learning - Python", state);
+  drawCobolProcessing(state);
+  drawMachineLearning(state);
   drawPatientRecords(state);
 }
 
-
-
 var machinelearning = {}
-
 var datasythesis = {}
+
+function fillStripes(context, x, y, width, height) {
+  var color1 = "#FFFFFF",
+    color2 = "#CCEEF2";
+
+  var starty = y;
+  var endx = x;
+  var startx = x;
+
+  var gap = 5;
+
+  do {
+    starty = starty + gap;
+    endx = endx + gap;
+    context.beginPath();
+    context.strokeStyle = "white";
+    context.lineWidth = 1.5;
+    context.lineCap = 'round';
+    context.moveTo(x, starty);
+    context.lineTo(endx, y);
+    context.stroke();
+
+  } while (starty < height + y && endx + 5 < width + x)
+
+  if (width > height) {
+
+    endx = height + gap;
+
+    do {
+      starty = height + y;
+      startx = startx + gap;
+      endx = endx + gap;
+      context.beginPath();
+      context.strokeStyle = "white";
+      context.lineWidth = 1.5;
+      context.lineCap = 'round';
+      context.moveTo(startx, starty);
+      context.lineTo(endx, y);
+      context.stroke();
+
+    } while (endx + gap < width + x)
+
+    endx = x + width
+    endy = y - gap;
+    starty = y + height;
+
+    do {
+      startx = startx + gap;
+      endy = endy + gap;
+      context.beginPath();
+      context.strokeStyle = "white";
+      context.lineWidth = 1.5;
+      context.lineCap = 'round';
+      context.moveTo(startx, starty);
+      context.lineTo(endx, endy);
+      context.stroke();
+
+    } while (endy + gap < height + y)
+
+  }
+
+  if (height > width) {
+
+    endx = width + x;
+    endy = y - gap;
+    startx = x;
+    starty = width + y - gap;
+
+    do {
+      starty = starty + gap;
+      endy = endy + gap;
+      context.beginPath();
+      context.strokeStyle = "white";
+      context.lineWidth = 1.5;
+      context.lineCap = 'round';
+      context.moveTo(startx, starty);
+      context.lineTo(endx, endy);
+      context.stroke();
+
+    } while (starty + gap < height + y)
+
+    starty = y + height - gap;
+    startx = x;
+    endx = x + width;
+    // endy = y + width-gap;
+
+    do {
+      startx = startx + gap;
+      endy = endy + gap;
+      context.beginPath();
+      context.strokeStyle = "white";
+      context.lineWidth = 1.5;
+      context.lineCap = 'round';
+      context.moveTo(startx, starty);
+      context.lineTo(endx, endy);
+      context.stroke();
+
+    } while (startx + gap < width + x)
+
+  }
+}

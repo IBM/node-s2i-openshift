@@ -27,13 +27,13 @@ body, html {
 .guide{
   display: flex;
   flex-direction: row;
-  width:860px;
+  width: 860px;
+  align-items: center;
 }
 
 .hero{
   height: 60px;
 width: 160px;
-margin-top: 40px;
 font-size: 14px;
 color: #0F4C81;
 padding: 10px;
@@ -400,7 +400,7 @@ a {
   width: 230px;
   margin-left: 20px;
   background: white;
-  border: 1px solid #eaf8f9;
+  border: 1px solid #00ABC0;
   display: flex;
   flex-direction: column;
 }
@@ -488,17 +488,25 @@ a {
   height: 100px;
   display: flex;
   flex-direction: row;
-  margin-top: 40px;
 }
 
 .item{
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  width:120px;
+  width: 100px;
   justify-content: center;
   align-items: center;
   align-content: center;
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px;
+  border:1px solid white;
+  border-radius: 4px;
+}
+
+.item:hover{
+  border:1px dashed #F88F58;
 }
 
 .itemstep{
@@ -517,8 +525,18 @@ font-weight: bold;
 border:1px solid #00ABC0;
 }
 
+.stepbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height:50px;
+}
+
 .itemtitle{
-  height: 60px;
+  height: 30px;
   text-align: center;
   width: 100px;
   border-radius: 20px;
