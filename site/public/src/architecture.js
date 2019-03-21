@@ -66,6 +66,8 @@ var HIGHLIGHTED = 0;
 var DIMMED = 1;
 var NORMAL = 2;
 
+var DIMMEDORANGE = "fef3ee";
+
 if (c != undefined) {
   var ctx = c.getContext("2d");
   ctx.beginPath();
@@ -77,7 +79,6 @@ if (c != undefined) {
   ctx.fillText("Analytics System", 455, 20);
   drawDefault();
   ctx.lineWidth = 1;
-  drawConnections();
 
   // c.onmousemove = mouseMove;
 }
@@ -141,10 +142,16 @@ function drawFrontEndPattern(source) {
     drawAPIConnect(HIGHLIGHTED);
     drawzOS(DIMMED);
     drawContainer("IBM Container Service", DIMMED);
-    drawZOSConnect(HIGHLIGHTED);
-    drawPatientRecords(HIGHLIGHTED);
-    drawCobolProcessing(HIGHLIGHTED);
+    drawZOSConnect(DIMMED);
+    drawPatientRecords(DIMMED);
+    drawCobolProcessing(DIMMED);
     drawSynthea(DIMMED);
+
+    ctx.strokeStyle = HIGHLIGHT;
+    ctx.beginPath();
+    ctx.moveTo(240, 140);
+    ctx.lineTo(170, 120);
+    ctx.stroke();
 
     setSelectedborder(source);
 
@@ -164,10 +171,25 @@ function drawDefault(source) {
   drawAPIConnect(NORMAL)
   drawzOS(NORMAL);
   drawSynthea(NORMAL);
+  drawConnections();
+}
+
+function drawMachinelearning(){
+  
 }
 
 
 function drawContainerServicePattern(source) {
+
+  if (chosenpattern == null || chosenpattern != source) {
+
+    if(chosenpattern != null){
+      clearSelectedborder(chosenpattern);
+    }
+
+    chosenpattern = source;
+
+
   clearCanvas();
   console.log('analytics app');
   drawContainer("IBM Container Service", HIGHLIGHTED);
@@ -180,6 +202,32 @@ function drawContainerServicePattern(source) {
   drawMachineLearning(DIMMED);
   drawSynthea(DIMMED);
   displayInfo(analyticsInfo);
+
+
+  ctx.strokeStyle = HIGHLIGHT;
+  ctx.beginPath();
+
+
+  ctx.moveTo(175, 240);
+  ctx.lineTo(240, 220);
+
+  /* API CONNECT TO ZOS CONNECT */
+
+  ctx.moveTo(320, 220);
+  ctx.lineTo(385, 280);
+
+
+  ctx.stroke();
+
+
+      setSelectedborder(source);
+
+    } else {
+      clearSelectedborder(source);
+
+      chosenpattern = null;
+      drawDefault();
+    }
 }
 
 function setSelectedborder(source){
@@ -215,6 +263,13 @@ function drawPatientRecordsPattern(source) {
     drawCobolProcessing(DIMMED)
     drawPatientRecords(HIGHLIGHTED);
     drawAPIConnect(DIMMED);
+
+    ctx.strokeStyle = HIGHLIGHT;
+    ctx.beginPath();
+    ctx.moveTo(100, 430);
+    ctx.lineTo(100, 505);
+    ctx.stroke();
+
     displayInfo(syntheaInfo);
 
     setSelectedborder(source);
