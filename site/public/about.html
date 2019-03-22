@@ -38,10 +38,10 @@
       <div class="hero"><div class="herotitle">Development Steps</div><div class="heroinstruction">tap on each step for detail</div></div>
     <ul class="index">
       <li class="item" id="patientrecords" onclick="drawPatientRecordsPattern(this)"><div class="stepbox"><div class="itemstep">1</div></div><div class="itemtitle">data acquisition</div></li>
-      <li class="item"><div class="stepbox"><div class="itemstep">2</div></div><div class="itemtitle">api management</div></li>
-      <li class="item" onclick="drawFrontEndPattern(this)"><div class="stepbox"><div class="itemstep">3</div></div><div class="itemtitle">front end</div></li>
-      <li class="item"><div class="stepbox"><div class="itemstep">4</div></div><div class="itemtitle">machine learning</div></li>
-      <li class="item" onclick="drawContainerServicePattern(this)"><div class="stepbox"><div class="itemstep">5</div></div><div class="itemtitle">deep analytics</div></li>
+      <li class="item" id="apimanagement" onclick="drawAPIManagementPattern(this)"><div class="stepbox"><div class="itemstep">2</div></div><div class="itemtitle">api management</div></li>
+      <li class="item" id="frontend" onclick="drawFrontEndPattern(this)"><div class="stepbox"><div class="itemstep">3</div></div><div class="itemtitle">front end</div></li>
+      <li class="item" id="ml" onclick="drawMachineLearningPattern(this)"><div class="stepbox"><div class="itemstep">4</div></div><div class="itemtitle">machine learning</div></li>
+      <li class="item" id="analytics" onclick="drawContainerServicePattern(this)"><div class="stepbox"><div class="itemstep">5</div></div><div class="itemtitle">deep analytics</div></li>
 
     </ul>
   </div>
@@ -50,7 +50,10 @@
       <div class="canvas"><canvas id="canvas" width="600" height="700"></canvas></div>
       <div class="archdetails" id="archdetails">
         <div class="archtitle" id="archtitle">Summit Health Software Architecture</div>
-        <div class="archsubtitle" id="subtitle">An Open Source Case Study</div>
+        <!-- <div class="archsubtitle" id="subtitle">An Open Source Case Study</div> -->
+        <div class="archlink">
+          <button id="learnmore" class="archbutton" onclick="openpattern()">Learn More ...</button>
+        </div>
         <div class="archtechlisttile" id="">Technology</div>
         <ul class="archtechlist" id="techlist">
           <li>IBM zSystems</li>
@@ -59,10 +62,10 @@
           <li>IBM Watson Data Platform</li>
           <li>IBM API Connect</li>
         </ul>
-          <div class="archtechlisttile" id="">Description</div>
+        <div class="archtechlisttile" id="">Description</div>
         <div class="archtechdetails" id="description">Summit Health is an experimental project, and open source reference architecture for integrating a legacy data system, with modern cloud technology. </div>
         <div class="arch"></div>
-        <div class="archlink"><button id="learnmore" class="archbutton">Learn More</button></div>
+
       </div>
     </div>
   </div>

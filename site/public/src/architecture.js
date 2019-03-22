@@ -46,6 +46,14 @@ var mlInfo = {
   pattern: ""
 }
 
+var apiInfo = {
+  title: "Connecting zOS with API Connect",
+  subtitle: "Jupiter Notebooks and zOS",
+  description: "In this pattern, we show how to liberate mainframe data with hybrid integration.",
+  technologies: ["IBM zSystems", "IBM DB2"],
+  pattern: ""
+}
+
 var chosenpattern = null;
 
 var c = document.getElementById("canvas");
@@ -70,13 +78,7 @@ var DIMMEDORANGE = "fef3ee";
 
 if (c != undefined) {
   var ctx = c.getContext("2d");
-  ctx.beginPath();
-  ctx.stroke();
-  ctx.lineWidth = 1.5;
-  ctx.fillStyle = "#0F4C81";
-  ctx.font = 'bold 12px sans-serif';
-  ctx.fillText("Patient System", 5, 20);
-  ctx.fillText("Analytics System", 455, 20);
+
   drawDefault();
   ctx.lineWidth = 1;
 
@@ -123,13 +125,20 @@ function mouseMove(e) {
 
 function clearCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.beginPath();
+  ctx.stroke();
+  ctx.lineWidth = 1.5;
+  ctx.fillStyle = "#0F4C81";
+  ctx.font = 'bold 12px sans-serif';
+  ctx.fillText("Patient System", 5, 20);
+  ctx.fillText("Analytics System", 455, 20);
 }
 
 function drawFrontEndPattern(source) {
 
   if (chosenpattern == null || chosenpattern != source) {
 
-    if(chosenpattern != null){
+    if (chosenpattern != null) {
       clearSelectedborder(chosenpattern);
     }
 
@@ -140,17 +149,55 @@ function drawFrontEndPattern(source) {
     displayInfo(modernAppInfo);
     drawNodeApp("CF - ICP", HIGHLIGHTED);
     drawAPIConnect(HIGHLIGHTED);
+    drawCobolProcessing(DIMMED);
     drawzOS(DIMMED);
     drawContainer("IBM Container Service", DIMMED);
     drawZOSConnect(DIMMED);
     drawPatientRecords(DIMMED);
-    drawCobolProcessing(DIMMED);
+    drawWatsonDataPlatform(DIMMED);
+    drawSynthea(DIMMED);
+
+
+    ctx.strokeStyle = HIGHLIGHT;
+    ctx.beginPath();
+    connectAPItoPatientUI();
+    ctx.stroke();
+
+    setSelectedborder(source);
+
+  } else {
+    clearSelectedborder(source);
+
+    chosenpattern = null;
+    drawDefault();
+  }
+}
+
+function drawAPIManagementPattern(source){
+  if (chosenpattern == null || chosenpattern != source) {
+
+    if (chosenpattern != null) {
+      clearSelectedborder(chosenpattern);
+    }
+
+    chosenpattern = source;
+
+    clearCanvas();
+    console.log('node app');
+    displayInfo(apiInfo);
+    drawNodeApp("CF - ICP", DIMMED);
+    drawAPIConnect(HIGHLIGHTED);
+    drawCobolProcessing(HIGHLIGHTED);
+    drawzOS(HIGHLIGHTED);
+    drawContainer("IBM Container Service", DIMMED);
+    drawZOSConnect(HIGHLIGHTED);
+    drawPatientRecords(HIGHLIGHTED);
+    drawWatsonDataPlatform(DIMMED);
     drawSynthea(DIMMED);
 
     ctx.strokeStyle = HIGHLIGHT;
     ctx.beginPath();
-    ctx.moveTo(240, 140);
-    ctx.lineTo(170, 120);
+    connectAPItoZOS();
     ctx.stroke();
 
     setSelectedborder(source);
@@ -171,11 +218,83 @@ function drawDefault(source) {
   drawAPIConnect(NORMAL)
   drawzOS(NORMAL);
   drawSynthea(NORMAL);
+  drawWatsonDataPlatform(NORMAL);
   drawConnections();
 }
 
-function drawMachinelearning(){
-  
+function drawWatsonDataPlatform(state) {
+
+  var label = "Watson Data Platform";
+
+  drawSubsystem(355, 360, 200, 100, label, state);
+  drawMachineLearning(state);
+}
+
+function drawMachineLearningPattern(source){
+  if (chosenpattern == null || chosenpattern != source) {
+
+    if (chosenpattern != null) {
+      clearSelectedborder(chosenpattern);
+    }
+
+    chosenpattern = source;
+
+    clearCanvas();
+    console.log('node app');
+    displayInfo(mlInfo);
+    drawNodeApp("CF - ICP", DIMMED);
+    drawAPIConnect(DIMMED);
+    drawCobolProcessing(DIMMED);
+    drawzOS(DIMMED);
+    drawContainer("IBM Container Service", DIMMED);
+    drawZOSConnect(DIMMED);
+    drawPatientRecords(HIGHLIGHTED);
+    drawSynthea(DIMMED);
+    drawWatsonDataPlatform(HIGHLIGHTED);
+
+
+
+      ctx.strokeStyle = HIGHLIGHT;
+      ctx.beginPath();
+      connectDataPlatform();
+      ctx.stroke();
+
+    setSelectedborder(chosenpattern);
+
+  } else {
+    clearSelectedborder(source);
+
+    chosenpattern = null;
+    drawDefault();
+  }
+}
+
+function openpattern(){
+
+  if(chosenpattern != null){
+
+    switch(chosenpattern.id){
+
+      case 'patientrecords':
+      window.open('https://developer.ibm.com/patterns/transform-load-big-data-csv-files-db2-zos-database/');
+      break;
+
+      case 'apimanagement':
+      break;
+
+      case 'frontend':
+      break;
+
+      case 'ml':
+      break;
+
+      case 'analytics':
+      break;
+
+      default:
+      break;
+    }
+  }
 }
 
 
@@ -183,71 +302,63 @@ function drawContainerServicePattern(source) {
 
   if (chosenpattern == null || chosenpattern != source) {
 
-    if(chosenpattern != null){
+    if (chosenpattern != null) {
       clearSelectedborder(chosenpattern);
     }
 
     chosenpattern = source;
 
+    clearCanvas();
+    console.log('analytics app');
+    drawContainer("IBM Container Service", HIGHLIGHTED);
+    drawNodeApp("CF - ICP", DIMMED);
+    drawWatsonDataPlatform(DIMMED);
 
-  clearCanvas();
-  console.log('analytics app');
-  drawContainer("IBM Container Service", HIGHLIGHTED);
-  drawNodeApp("CF - ICP", DIMMED);
-  drawAPIConnect(HIGHLIGHTED);
-  drawzOS(HIGHLIGHTED);
-  drawZOSConnect(HIGHLIGHTED);
-  drawPatientRecords(HIGHLIGHTED);
-  drawCobolProcessing(HIGHLIGHTED);
-  drawMachineLearning(DIMMED);
-  drawSynthea(DIMMED);
-  displayInfo(analyticsInfo);
+    drawAPIConnect(HIGHLIGHTED);
+    drawzOS(HIGHLIGHTED);
+    drawZOSConnect(HIGHLIGHTED);
+    drawPatientRecords(HIGHLIGHTED);
+    drawCobolProcessing(HIGHLIGHTED);
 
+    drawSynthea(DIMMED);
+    displayInfo(analyticsInfo);
 
-  ctx.strokeStyle = HIGHLIGHT;
-  ctx.beginPath();
+    ctx.strokeStyle = HIGHLIGHT;
+    ctx.beginPath();
 
+    ctx.moveTo(175, 240);
+    ctx.lineTo(240, 220);
 
-  ctx.moveTo(175, 240);
-  ctx.lineTo(240, 220);
+    /* API CONNECT TO ZOS CONNECT */
 
-  /* API CONNECT TO ZOS CONNECT */
+    ctx.moveTo(320, 220);
+    ctx.lineTo(385, 280);
 
-  ctx.moveTo(320, 220);
-  ctx.lineTo(385, 280);
+    ctx.stroke();
 
+    setSelectedborder(source);
 
-  ctx.stroke();
+  } else {
+    clearSelectedborder(source);
 
-
-      setSelectedborder(source);
-
-    } else {
-      clearSelectedborder(source);
-
-      chosenpattern = null;
-      drawDefault();
-    }
+    chosenpattern = null;
+    drawDefault();
+  }
 }
 
-function setSelectedborder(source){
+function setSelectedborder(source) {
   source.style.border = "1px solid " + HIGHLIGHT;
 }
 
-function clearSelectedborder(source){
+function clearSelectedborder(source) {
   source.style.border = "1px solid white";
-
-  // source.onhover = function()
-  // {
-  //     source.style.border = "1px dashed " + HIGHLIGHT;
-  // }
 }
 
 function drawPatientRecordsPattern(source) {
 
   if (chosenpattern == null || chosenpattern != source) {
 
-    if(chosenpattern != null){
+    if (chosenpattern != null) {
       clearSelectedborder(chosenpattern);
     }
 
@@ -260,14 +371,13 @@ function drawPatientRecordsPattern(source) {
     drawZOSConnect(DIMMED);
     drawMachineLearning(DIMMED);
     drawContainer("IBM Container Service", DIMMED);
-    drawCobolProcessing(DIMMED)
     drawPatientRecords(HIGHLIGHTED);
     drawAPIConnect(DIMMED);
+    drawWatsonDataPlatform(DIMMED);
 
     ctx.strokeStyle = HIGHLIGHT;
     ctx.beginPath();
-    ctx.moveTo(100, 430);
-    ctx.lineTo(100, 505);
+    connectSyntheaToDB();
     ctx.stroke();
 
     displayInfo(syntheaInfo);
@@ -287,13 +397,11 @@ function drawConnections(state) {
 
   /* API CONNECT TO CF UI */
 
-  ctx.moveTo(240, 140);
-  ctx.lineTo(170, 120);
+  connectAPItoPatientUI();
 
   /* API CONNECT TO ZOS CONNECT */
 
-  ctx.moveTo(175, 240);
-  ctx.lineTo(240, 220);
+  connectAPItoZOS();
 
   /* API CONNECT TO ZOS CONNECT */
 
@@ -302,18 +410,39 @@ function drawConnections(state) {
 
   /* SYNTHEA TO DB */
 
-  ctx.moveTo(100, 430);
-  ctx.lineTo(100, 505);
+  connectSyntheaToDB();
+  connectDataPlatform();
 
   ctx.stroke();
 }
 
+
+function connectAPItoZOS(){
+  ctx.moveTo(175, 240);
+  ctx.lineTo(240, 220);
+}
+
+function connectAPItoPatientUI() {
+  ctx.moveTo(240, 140);
+  ctx.lineTo(170, 120);
+}
+
+function connectSyntheaToDB() {
+  ctx.moveTo(100, 370);
+  ctx.lineTo(100, 440);
+}
+
+function connectDataPlatform() {
+  ctx.moveTo(385, 410);
+  ctx.lineTo(175, 360);
+}
+
 function drawPatientRecords(state) {
-  drawComponent(25, 400, "Patient Records - DB2", state);
+  drawComponent(25, 340, "Patient Records - DB2", state);
 }
 
 function drawSynthea(state) {
-  drawIsland(5, 490, 200, 50, "Synthea - Data Generation", state);
+  drawIsland(5, 430, 200, 50, "Synthea - Data Generation", state);
 }
 
 function drawZOSConnect(state) {
@@ -345,7 +474,7 @@ function drawDataLake(state) {
 }
 
 function drawMachineLearning(state) {
-  drawComponent(25, 340, "Machine Learning - Python", state);
+  drawComponent(375, 400, "Machine Learning - Python", state);
 }
 
 function displayInfo(info) {
@@ -353,8 +482,8 @@ function displayInfo(info) {
   var title = document.getElementById("archtitle");
   title.innerHTML = info.title;
 
-  var subtitle = document.getElementById("subtitle");
-  subtitle.innerHTML = info.subtitle;
+  // var subtitle = document.getElementById("subtitle");
+  // subtitle.innerHTML = info.subtitle;
 
   var description = document.getElementById("description");
   description.innerHTML = info.description;
@@ -504,55 +633,49 @@ function drawSubsystem(x, y, width, height, label, state) {
 
 function drawzOS(state) {
   var label = "z/OS";
-  drawSubsystem(5, 180, 200, 280, label, state);
+  drawSubsystem(5, 180, 200, 220, label, state);
   drawZOSConnect(state);
   drawCobolProcessing(state);
-  drawMachineLearning(state);
   drawPatientRecords(state);
 }
 
 var machinelearning = {}
 var datasythesis = {}
 
+function drawStripe(context, startx, starty, endx, endy){
+  context.beginPath();
+  context.strokeStyle = "white";
+  context.lineWidth = 2;
+  context.lineCap = 'round';
+  context.moveTo(startx, starty);
+  context.lineTo(endx, endy);
+  context.stroke();
+}
+
 function fillStripes(context, x, y, width, height) {
-  var color1 = "#FFFFFF",
-    color2 = "#CCEEF2";
 
   var starty = y;
   var endx = x;
   var startx = x;
+  var endy = y;
 
   var gap = 5;
 
   do {
     starty = starty + gap;
     endx = endx + gap;
-    context.beginPath();
-    context.strokeStyle = "white";
-    context.lineWidth = 1.5;
-    context.lineCap = 'round';
-    context.moveTo(x, starty);
-    context.lineTo(endx, y);
-    context.stroke();
-
+    drawStripe(context, startx, starty, endx, endy)
   } while (starty < height + y && endx + 5 < width + x)
 
   if (width > height) {
 
-    endx = height + gap;
+    endx = height + x;
 
     do {
       starty = height + y;
       startx = startx + gap;
       endx = endx + gap;
-      context.beginPath();
-      context.strokeStyle = "white";
-      context.lineWidth = 1.5;
-      context.lineCap = 'round';
-      context.moveTo(startx, starty);
-      context.lineTo(endx, y);
-      context.stroke();
-
+      drawStripe(context, startx, starty, endx, endy)
     } while (endx + gap < width + x)
 
     endx = x + width
@@ -562,16 +685,8 @@ function fillStripes(context, x, y, width, height) {
     do {
       startx = startx + gap;
       endy = endy + gap;
-      context.beginPath();
-      context.strokeStyle = "white";
-      context.lineWidth = 1.5;
-      context.lineCap = 'round';
-      context.moveTo(startx, starty);
-      context.lineTo(endx, endy);
-      context.stroke();
-
+      drawStripe(context, startx, starty, endx, endy)
     } while (endy + gap < height + y)
-
   }
 
   if (height > width) {
@@ -584,33 +699,17 @@ function fillStripes(context, x, y, width, height) {
     do {
       starty = starty + gap;
       endy = endy + gap;
-      context.beginPath();
-      context.strokeStyle = "white";
-      context.lineWidth = 1.5;
-      context.lineCap = 'round';
-      context.moveTo(startx, starty);
-      context.lineTo(endx, endy);
-      context.stroke();
-
+      drawStripe(context, startx, starty, endx, endy)
     } while (starty + gap < height + y)
 
     starty = y + height - gap;
     startx = x;
     endx = x + width;
-    // endy = y + width-gap;
 
     do {
       startx = startx + gap;
       endy = endy + gap;
-      context.beginPath();
-      context.strokeStyle = "white";
-      context.lineWidth = 1.5;
-      context.lineCap = 'round';
-      context.moveTo(startx, starty);
-      context.lineTo(endx, endy);
-      context.stroke();
-
+      drawStripe(context, startx, starty, endx, endy)
     } while (startx + gap < width + x)
-
   }
 }

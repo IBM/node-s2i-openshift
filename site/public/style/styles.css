@@ -24,32 +24,31 @@ body, html {
   color: white;
 }
 
-.guide{
+.guide {
   display: flex;
   flex-direction: row;
   width: 860px;
   align-items: center;
 }
 
-.hero{
+.hero {
   height: 60px;
-width: 160px;
-font-size: 14px;
-color: #0F4C81;
-padding: 10px;
-background: #eaf8f9;
-
-    border: 1px solid #00ABC0;
+  width: 160px;
+  font-size: 14px;
+  color: #0F4C81;
+  padding: 10px;
+  background: #eaf8f9;
+  border: 1px solid #00ABC0;
 }
 
-.herotitle{
+.herotitle {
   font-size: 13px;
   font-weight: bold;
   color: #0F4C81;
 }
 
-.heroinstruction{
-  margin-top:10px;
+.heroinstruction {
+  margin-top: 10px;
   font-size: 13px;
   font-weight: normal;
   color: #0F4C81;
@@ -396,7 +395,7 @@ a {
 }
 
 .archdetails {
-  height: 550px;
+  height: 500px;
   width: 230px;
   margin-left: 20px;
   background: white;
@@ -474,23 +473,22 @@ a {
   align-items: center;
 }
 
-.archbutton{
-    background: #00ABC0;
+.archbutton {
+  background: #00ABC0;
   border: none;
   height: 30px;
-  width: 100px;
+  width: 100%;
   color: white;
   font-weight: bold;
-  border-radius: 4px;
 }
 
-.index{
+.index {
   height: 100px;
   display: flex;
   flex-direction: row;
 }
 
-.item{
+.item {
   display: flex;
   flex-direction: column;
   list-style-type: none;
@@ -501,15 +499,15 @@ a {
   cursor: pointer;
   margin: 5px;
   padding: 5px;
-  border:1px solid white;
+  border: 1px solid white;
   border-radius: 4px;
 }
 
-.item:hover{
-  border:1px dashed #F88F58;
+.item:hover {
+  border: 1px dashed #F88F58;
 }
 
-.itemstep{
+.itemstep {
   height: 40px;
   text-align: center;
   width: 40px;
@@ -519,23 +517,23 @@ a {
   align-items: center;
   align-content: center;
   display: flex;
-  color:#0F4C81;
+  color: #0F4C81;
   font-size: 14px;
-font-weight: bold;
-border:1px solid #00ABC0;
+  font-weight: bold;
+  border: 1px solid #00ABC0;
 }
 
-.stepbox{
+.stepbox {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   align-content: center;
   width: 100%;
-  height:50px;
+  height: 50px;
 }
 
-.itemtitle{
+.itemtitle {
   height: 30px;
   text-align: center;
   width: 100px;
@@ -545,5 +543,5 @@ border:1px solid #00ABC0;
   align-content: center;
   display: flex;
   font-size: 12px;
-  color:#0F4C81;
+  color: #0F4C81;
 }
