@@ -26,8 +26,8 @@
             <menuitem>information</menuitem></a>
           <a class="dimmed" href="./measurements.html">
             <menuitem>measurements</menuitem></a>
-          <a class="dimmed" href="./labs.html">
-            <menuitem>lab results</menuitem></a>
+          <!-- <a class="dimmed" href="./labs.html">
+            <menuitem>lab results</menuitem></a> -->
           <a class="dimmed" href="./about.html">
             <menuitem class="lit">about</menuitem></a>
         </menu>
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="guide">
-      <div class="hero"><div class="herotitle">Development Steps</div><div class="heroinstruction">tap on each step for detail</div></div>
+      <div class="hero"><div class="herotitle">Code Patterns</div><div class="heroinstruction">Tap each pattern step -></div></div>
     <ul class="index">
       <li class="item" id="patientrecords" onclick="drawPatientRecordsPattern(this)"><div class="stepbox"><div class="itemstep">1</div></div><div class="itemtitle">data acquisition</div></li>
       <li class="item" id="apimanagement" onclick="drawAPIManagementPattern(this)"><div class="stepbox"><div class="itemstep">2</div></div><div class="itemtitle">api management</div></li>
@@ -52,18 +52,18 @@
         <div class="archtitle" id="archtitle">Summit Health Software Architecture</div>
         <!-- <div class="archsubtitle" id="subtitle">An Open Source Case Study</div> -->
         <div class="archlink">
-          <button id="learnmore" class="archbutton" onclick="openpattern()">Learn More ...</button>
+          <button id="learnmore" class="archbutton" onclick="openpattern()">Tap here for pattern ...</button>
         </div>
         <div class="archtechlisttile" id="">Technology</div>
         <ul class="archtechlist" id="techlist">
-          <li>IBM zSystems</li>
+          <li>IBM Z</li>
           <li>IBM Cloud Container Service</li>
           <li>IBM Cloud Private</li>
           <li>IBM Watson Data Platform</li>
           <li>IBM API Connect</li>
         </ul>
         <div class="archtechlisttile" id="">Description</div>
-        <div class="archtechdetails" id="description">Summit Health is an experimental project, and open source reference architecture for integrating a legacy data system, with modern cloud technology. </div>
+        <div class="archtechdetails" id="description">Summit Health is an experimental project, and open source reference architecture for integrating a traditional data system, with modern cloud technology. </div>
         <div class="arch"></div>
 
       </div>
@@ -71,5 +71,6 @@
   </div>
 
 </body>
+<script src="src/canvasBoxShading.js"></script>
 <script src="src/architecture.js"></script>
 </html>

@@ -1,24 +1,17 @@
-// if (!sessionStorage.getItem("patientid")) {
-//   console.log("Redirecting to login");
-//   window.location = '/login.html';
-// } else {
-//   var patientlogout = document.getElementById('logout');
-//   patientlogout.innerHTML = sessionStorage.getItem("patientusername") + "/logout";
-// }
 
 var generalInfo = {
   title: "Summit Health Software Architecture",
   subtitle: "An Open Source Case Study",
-  description: "Summit Health is an experimental project, and open source reference architecture for integrating a legacy data system, with modern cloud technology.",
-  technologies: ["IBM zSystems", "IBM Cloud Container Service", "IBM Cloud Private", "IBM Watson Data Platform", "IBM API Connect"],
+  description: "Summit Health is an experimental project, and open source reference architecture for integrating a traditional data system, with modern cloud technology.",
+  technologies: ["IBM Z", "IBM Cloud Kubernetes Service", "IBM Cloud Private", "IBM Watson Data Platform", "IBM API Connect"],
   pattern: ""
 }
 
 var modernAppInfo = {
   title: "Writing a Modern Web UI using existing System Z application",
   subtitle: "Agile UI development",
-  description: "In this pattern, we show how to rapidly prototype a new web UI built on Node JS, using HTML5 technology, surfacing legacy data in fresh ways. ",
-  technologies: ["IBM zSystems", "IBM Cloud Private", "IBM API Connect"],
+  description: "In this pattern, we show how to rapidly prototype a new web UI built on Node JS, using HTML5 technology, surfacing traditional data in fresh ways. ",
+  technologies: ["IBM Z", "IBM Cloud Private", "IBM API Connect"],
   pattern: ""
 }
 
@@ -26,23 +19,23 @@ var analyticsInfo = {
   title: "A health data analytics app that integrates with historic data",
   subtitle: "Creating a full stack big data app",
   description: "In this pattern, we build a full stack containerized application that delves into big data, using Node JS and the Watson Data Platform.",
-  technologies: ["IBM zSystems", "IBM Cloud Container Service", "IBM API Connect"],
+  technologies: ["IBM Z", "IBM Cloud Kubernetes Service", "IBM API Connect"],
   pattern: ""
 }
 
 var syntheaInfo = {
   title: "Conditioning data on ZOS",
   subtitle: "Data preparation from Synthea",
-  description: "In this pattern, we look at tips and tricks for conditioning big sets of generated data for storage on DB2/zOS.",
-  technologies: ["IBM zSystems", "IBM DB2"],
+  description: "In this pattern, we look at tips and tricks for conditioning big sets of generated data for storage on Db2/zOS.",
+  technologies: ["IBM Z", "IBM Db2"],
   pattern: ""
 }
 
 var mlInfo = {
   title: "Machine learning with big data and zOS",
   subtitle: "Jupiter Notebooks and zOS",
-  description: "In this pattern, we look at tips and tricks for working with data science and DB2/zOS.",
-  technologies: ["IBM zSystems", "IBM DB2"],
+  description: "In this pattern, we look at tips and tricks for working with data science and Db2/zOS.",
+  technologies: ["IBM Z", "IBM Db2"],
   pattern: ""
 }
 
@@ -50,7 +43,7 @@ var apiInfo = {
   title: "Connecting zOS with API Connect",
   subtitle: "Jupiter Notebooks and zOS",
   description: "In this pattern, we show how to liberate mainframe data with hybrid integration.",
-  technologies: ["IBM zSystems", "IBM DB2"],
+  technologies: ["IBM Z", "IBM Db2"],
   pattern: ""
 }
 
@@ -147,11 +140,11 @@ function drawFrontEndPattern(source) {
     clearCanvas();
     console.log('node app');
     displayInfo(modernAppInfo);
-    drawNodeApp("CF - ICP", HIGHLIGHTED);
+    drawNodeApp("IBM Kubernetes Service", HIGHLIGHTED);
     drawAPIConnect(HIGHLIGHTED);
     drawCobolProcessing(DIMMED);
     drawzOS(DIMMED);
-    drawContainer("IBM Container Service", DIMMED);
+    drawContainer("IBM Kubernetes Service", DIMMED);
     drawZOSConnect(DIMMED);
     drawPatientRecords(DIMMED);
     drawWatsonDataPlatform(DIMMED);
@@ -173,7 +166,7 @@ function drawFrontEndPattern(source) {
   }
 }
 
-function drawAPIManagementPattern(source){
+function drawAPIManagementPattern(source) {
   if (chosenpattern == null || chosenpattern != source) {
 
     if (chosenpattern != null) {
@@ -185,11 +178,11 @@ function drawAPIManagementPattern(source){
     clearCanvas();
     console.log('node app');
     displayInfo(apiInfo);
-    drawNodeApp("CF - ICP", DIMMED);
+    drawNodeApp("IBM Kubernetes Service", DIMMED);
     drawAPIConnect(HIGHLIGHTED);
     drawCobolProcessing(HIGHLIGHTED);
     drawzOS(HIGHLIGHTED);
-    drawContainer("IBM Container Service", DIMMED);
+    drawContainer("IBM Kubernetes Service", DIMMED);
     drawZOSConnect(HIGHLIGHTED);
     drawPatientRecords(HIGHLIGHTED);
     drawWatsonDataPlatform(DIMMED);
@@ -213,8 +206,8 @@ function drawAPIManagementPattern(source){
 function drawDefault(source) {
   clearCanvas();
   displayInfo(generalInfo)
-  drawContainer("IBM Container Service", NORMAL);
-  drawNodeApp("CF - ICP", NORMAL);
+  drawContainer("IBM Kubernetes Service", NORMAL);
+  drawNodeApp("IBM Kubernetes Service", NORMAL);
   drawAPIConnect(NORMAL)
   drawzOS(NORMAL);
   drawSynthea(NORMAL);
@@ -230,7 +223,7 @@ function drawWatsonDataPlatform(state) {
   drawMachineLearning(state);
 }
 
-function drawMachineLearningPattern(source){
+function drawMachineLearningPattern(source) {
   if (chosenpattern == null || chosenpattern != source) {
 
     if (chosenpattern != null) {
@@ -242,22 +235,20 @@ function drawMachineLearningPattern(source){
     clearCanvas();
     console.log('node app');
     displayInfo(mlInfo);
-    drawNodeApp("CF - ICP", DIMMED);
+    drawNodeApp("IBM Kubernetes Service", DIMMED);
     drawAPIConnect(DIMMED);
     drawCobolProcessing(DIMMED);
     drawzOS(DIMMED);
-    drawContainer("IBM Container Service", DIMMED);
+    drawContainer("IBM Kubernetes Service", DIMMED);
     drawZOSConnect(DIMMED);
     drawPatientRecords(HIGHLIGHTED);
     drawSynthea(DIMMED);
     drawWatsonDataPlatform(HIGHLIGHTED);
 
-
-
-      ctx.strokeStyle = HIGHLIGHT;
-      ctx.beginPath();
-      connectDataPlatform();
-      ctx.stroke();
+    ctx.strokeStyle = HIGHLIGHT;
+    ctx.beginPath();
+    connectDataPlatform();
+    ctx.stroke();
 
     setSelectedborder(chosenpattern);
 
@@ -269,30 +260,33 @@ function drawMachineLearningPattern(source){
   }
 }
 
-function openpattern(){
+function openpattern() {
 
-  if(chosenpattern != null){
+  if (chosenpattern != null) {
 
-    switch(chosenpattern.id){
+    switch (chosenpattern.id) {
 
       case 'patientrecords':
-      window.open('https://developer.ibm.com/patterns/transform-load-big-data-csv-files-db2-zos-database/');
-      break;
+        window.open('https://developer.ibm.com/patterns/transform-load-big-data-csv-files-Db2-zos-database/');
+        break;
 
       case 'apimanagement':
-      break;
+        break;
 
       case 'frontend':
-      break;
+        window.open('https://github.com/IBM/summit-health-patient-records');
+        break;
 
       case 'ml':
-      break;
+        window.open('https://developer.ibm.com/patterns/machine-learning-using-synthesized-patient-health-records/');
+        break;
 
       case 'analytics':
-      break;
+        window.open('https://github.com/IBM/summit-health-analytics');
+        break;
 
       default:
-      break;
+        break;
     }
   }
 }
@@ -310,8 +304,8 @@ function drawContainerServicePattern(source) {
 
     clearCanvas();
     console.log('analytics app');
-    drawContainer("IBM Container Service", HIGHLIGHTED);
-    drawNodeApp("CF - ICP", DIMMED);
+    drawContainer("IBM Kubernetes Service", HIGHLIGHTED);
+    drawNodeApp("Kubernetes", DIMMED);
     drawWatsonDataPlatform(DIMMED);
 
     drawAPIConnect(HIGHLIGHTED);
@@ -331,8 +325,7 @@ function drawContainerServicePattern(source) {
 
     /* API CONNECT TO ZOS CONNECT */
 
-    ctx.moveTo(320, 220);
-    ctx.lineTo(385, 280);
+    connectAnalytics();
 
     ctx.stroke();
 
@@ -367,10 +360,10 @@ function drawPatientRecordsPattern(source) {
     clearCanvas();
     drawzOS(HIGHLIGHTED);
     drawSynthea(HIGHLIGHTED);
-    drawNodeApp("CF - ICP", DIMMED);
+    drawNodeApp("IBM Kubernetes Service", DIMMED);
     drawZOSConnect(DIMMED);
     drawMachineLearning(DIMMED);
-    drawContainer("IBM Container Service", DIMMED);
+    drawContainer("IBM Kubernetes Service", DIMMED);
     drawPatientRecords(HIGHLIGHTED);
     drawAPIConnect(DIMMED);
     drawWatsonDataPlatform(DIMMED);
@@ -394,30 +387,15 @@ function drawPatientRecordsPattern(source) {
 function drawConnections(state) {
   ctx.strokeStyle = AQUA;
   ctx.beginPath();
-
-  /* API CONNECT TO CF UI */
-
   connectAPItoPatientUI();
-
-  /* API CONNECT TO ZOS CONNECT */
-
   connectAPItoZOS();
-
-  /* API CONNECT TO ZOS CONNECT */
-
-  ctx.moveTo(320, 220);
-  ctx.lineTo(385, 280);
-
-  /* SYNTHEA TO DB */
-
+  connectAnalytics();
   connectSyntheaToDB();
   connectDataPlatform();
-
   ctx.stroke();
 }
 
-
-function connectAPItoZOS(){
+function connectAPItoZOS() {
   ctx.moveTo(175, 240);
   ctx.lineTo(240, 220);
 }
@@ -437,8 +415,13 @@ function connectDataPlatform() {
   ctx.lineTo(175, 360);
 }
 
+function connectAnalytics() {
+  ctx.moveTo(320, 220);
+  ctx.lineTo(385, 240);
+}
+
 function drawPatientRecords(state) {
-  drawComponent(25, 340, "Patient Records - DB2", state);
+  drawComponent(25, 340, "Patient Records - Db2", state);
 }
 
 function drawSynthea(state) {
@@ -637,79 +620,4 @@ function drawzOS(state) {
   drawZOSConnect(state);
   drawCobolProcessing(state);
   drawPatientRecords(state);
-}
-
-var machinelearning = {}
-var datasythesis = {}
-
-function drawStripe(context, startx, starty, endx, endy){
-  context.beginPath();
-  context.strokeStyle = "white";
-  context.lineWidth = 2;
-  context.lineCap = 'round';
-  context.moveTo(startx, starty);
-  context.lineTo(endx, endy);
-  context.stroke();
-}
-
-function fillStripes(context, x, y, width, height) {
-
-  var starty = y;
-  var endx = x;
-  var startx = x;
-  var endy = y;
-
-  var gap = 5;
-
-  do {
-    starty = starty + gap;
-    endx = endx + gap;
-    drawStripe(context, startx, starty, endx, endy)
-  } while (starty < height + y && endx + 5 < width + x)
-
-  if (width > height) {
-
-    endx = height + x;
-
-    do {
-      starty = height + y;
-      startx = startx + gap;
-      endx = endx + gap;
-      drawStripe(context, startx, starty, endx, endy)
-    } while (endx + gap < width + x)
-
-    endx = x + width
-    endy = y - gap;
-    starty = y + height;
-
-    do {
-      startx = startx + gap;
-      endy = endy + gap;
-      drawStripe(context, startx, starty, endx, endy)
-    } while (endy + gap < height + y)
-  }
-
-  if (height > width) {
-
-    endx = width + x;
-    endy = y - gap;
-    startx = x;
-    starty = width + y - gap;
-
-    do {
-      starty = starty + gap;
-      endy = endy + gap;
-      drawStripe(context, startx, starty, endx, endy)
-    } while (starty + gap < height + y)
-
-    starty = y + height - gap;
-    startx = x;
-    endx = x + width;
-
-    do {
-      startx = startx + gap;
-      endy = endy + gap;
-      drawStripe(context, startx, starty, endx, endy)
-    } while (startx + gap < width + x)
-  }
 }
