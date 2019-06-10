@@ -5,6 +5,9 @@ function getPatientInfo(patientID) {
 	return new Promise(function(resolve, reject) {
 		request(API_URL + "getInfo/patients/" + patientID, function (error, response, body) {
 	 		if (!error && response.statusCode == 200) {
+
+				console.log(body)
+
 	 			body = JSON.parse(body);
 	    		var patientInfo = {
 					      name: body["HCCMAREA"]["CA_PATIENT_REQUEST"]["CA_FIRST_NAME"] + " " + body["HCCMAREA"]["CA_PATIENT_REQUEST"]["CA_LAST_NAME"],
@@ -28,6 +31,9 @@ function getPatientMedications(patientID) {
 			var medications = [];
 	 		if (!error && response.statusCode == 200) {
 	 			body = JSON.parse(body);
+
+				console.log(body)
+
 
 	 			try {
 					var medicationData = body["GETMEDO"]["CA_LIST_MEDICATION_REQUEST"]["CA_MEDICATIONS"];

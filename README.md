@@ -35,7 +35,7 @@ https://blog.adafruit.com/2018/04/16/machine-learning-helps-to-grok-blood-test-r
 
 [ concept screenshot to come ]
 
-Summit has also heard a lot about cloud computing. There is a lot of legacy code in the mainframe, and it works well for now ... but Summit think it may be a complimentary opportunity to explore some machine learning in the cloud ( either public or private )
+Summit has also heard a lot about cloud computing. There is a lot of traditional code in the mainframe, and it works well for now ... but Summit think it may be a complimentary opportunity to explore some machine learning in the cloud ( either public or private )
 
 Their CTO sees an architecture like this:
 

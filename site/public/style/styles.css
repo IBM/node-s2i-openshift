@@ -24,6 +24,36 @@ body, html {
   color: white;
 }
 
+.guide {
+  display: flex;
+  flex-direction: row;
+  width: 860px;
+  align-items: center;
+}
+
+.hero {
+  height: 60px;
+  width: 160px;
+  font-size: 14px;
+  color: #0F4C81;
+  padding: 10px;
+  background: #eaf8f9;
+  border: 1px solid #00ABC0;
+}
+
+.herotitle {
+  font-size: 13px;
+  font-weight: bold;
+  color: #0F4C81;
+}
+
+.heroinstruction {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: normal;
+  color: #0F4C81;
+}
+
 .banner {
   height: 60px;
   width: 100%;
@@ -355,7 +385,8 @@ a {
   height: 700px;
   display: flex;
   flex-direction: row;
-  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px dashed #00ABC0;
 }
 
 .canvas {
@@ -364,11 +395,11 @@ a {
 }
 
 .archdetails {
-  height: 650px;
+  height: 500px;
   width: 230px;
   margin-left: 20px;
   background: white;
-  border: 1px solid #eaf8f9;
+  border: 1px solid #00ABC0;
   display: flex;
   flex-direction: column;
 }
@@ -432,7 +463,7 @@ a {
   margin: 10px;
   color: #0F4C81;
   line-height: 18px;
-  min-height: 280px;
+  min-height: 180px;
 }
 
 .archlink {
@@ -442,12 +473,75 @@ a {
   align-items: center;
 }
 
-.archbutton{
+.archbutton {
   background: #00ABC0;
-border: none;
-height: 30px;
-width: 100px;
-color: white;
-font-weight: bold;
-border-radius: 4px;
+  border: none;
+  height: 30px;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+}
+
+.index {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+.item:hover {
+  border: 1px dashed #F88F58;
+}
+
+.itemstep {
+  height: 40px;
+  text-align: center;
+  width: 40px;
+  background: #eaf8f9;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  color: #0F4C81;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #00ABC0;
+}
+
+.stepbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 50px;
+}
+
+.itemtitle {
+  height: 30px;
+  text-align: center;
+  width: 100px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  font-size: 12px;
+  color: #0F4C81;
 }
