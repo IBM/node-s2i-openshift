@@ -1,25 +1,23 @@
-# health-records-system
+# Patient Health Records - App Modernization with RedHat OpenShift
 
-This project is a conceptual health records system, designed to showcase best in class integration of cloud technology, in collaboration with mainframe code.
+This project is a patient records user interface for a conceptual health records system. The UI is programmed with open standards JavaScript and modern, universal CSS, and HTML5 Canvas for layout.
 
-In particular, this project aims to produce, and describe examples for the following case studies:
+The UI is served by a simple Node.JS Express server, and the overall project goals are:
 
-- create a Java integration with a COBOL z/OS backend code pattern
-- use some data analytics - Watson or ML code pattern
-- create a serverless with a COBOL z/OS backend code pattern
-- create a private cloud/zOS integration code pattern
-- integrate blockchain based records with z/OS [ code pattern - Ash ]
-- establish a modular demonstrable app that can be always ready to share these examples with developers, clients, analysts [ client/analyst demo]
+- to use the project to show a step by step guide of deploying the app on OpenShift Source to Image ( S2I )
+- to illustrate the versatility of Kubernetes based micro services for modernizing traditional applications - for instance mainframe based applications, or classic Java app server applications
+- to experiment and explore open standards front end technologies for rendering custom charts, and for responsive design
 
-Run a patient simulation to populate and trigger the system
+This project stands alone in test mode, or integrates with associated projects [ paths to other projects ]
+
+![architecture](./design/architecture@2x.png)
+
 
 #### Summit Health Context
 
-Summit Health is a conceptual healthcare/insurance type company. It has been around a long time, and has 100s of thousands of patient records in an SQL database connected to a mainframe.
+Summit Health is a fictional, conceptual healthcare/insurance type company. It is imagined to have been around a long time, and has 100s of thousands of patient records in an SQL database connected to a either a mainframe, or a monolithic Java backend.
 
-The validation system for the records is written in COBOL. It has some entitlement rules, prescription rules, coverage rules coded in there.
-
-On the same mainframe there is Java code that connects with the validation system to serve web pages to individual clients of Summit.
+The business rules for the system is written in COBOL or Java. It has some entitlement rules, prescription rules, coverage rules coded in there.
 
 Summit's health records look very similar to the health records of most insurance companies.
 
@@ -39,7 +37,6 @@ Summit has also heard a lot about cloud computing. There is a lot of traditional
 
 Their CTO sees an architecture like this:
 
-![architecture](./design/architecture@2x.png)
 
 #### Project aims
 
