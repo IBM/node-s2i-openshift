@@ -41,3 +41,25 @@ Their CTO sees an architecture like this:
 #### Project aims
 
 This project aims to create a minimal data record system to flesh out this example - showing some cobol/java in action on a mainframe. Triggering a machine learning event using cloud functions, when a patient bloodtest record updates. Showing the new private cloud working alongside the old mainframe technology, and giving us a reference example to carve off pattern excerpts in an interesting collection.
+
+### Installation
+
+First, you'll need a cluster. [Follow the directions](https://cloud.ibm.com/docs/containers?topic=containers-openshift_tutorial#openshift_create_cluster) to create a Red Hat OpenShift on IBM Cloud cluster.
+
+Next, you will need a fork of this repository. Scroll back up to the top of this page and click on the Fork button.
+
+![fork](./images/fork.png)
+
+Select your github user name from the pop-up window.
+
+To deploy your just-forked repository, go to the Web Console for your OpenShift cluster and click on the 'Node.js' icon.
+
+![node](./images/node.png)
+
+In the following window, first click 'next' and then select 'advanced options' towards the bottom.
+
+![config](./images/config.png)
+
+Use `https://github.com/<your github id>/summit-health-patient-records` for the Git Repository URL and `/site` for the Context Dir. Click 'Create' at the bottom of the window to build and deploy the application.
+
+Once the app is deployed, you will need to change the port number in the service and the route.  Click on both, choose 'Edit YAML' from the drop-down menu in the uppper right, and change all instances of `8080` to `8060`. Click on the route provided, and login to your new app!
