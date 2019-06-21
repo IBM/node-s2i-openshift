@@ -49,8 +49,20 @@ This project aims to create a minimal data record system to flesh out this examp
 
 First, you'll need a cluster. [Follow the directions](https://cloud.ibm.com/docs/containers?topic=containers-openshift_tutorial#openshift_create_cluster) to create a Red Hat OpenShift on IBM Cloud cluster.
 
-Next, you will need a fork of this repository. Scroll back up to the top of this page and click on the Fork button. Select your github user name from the pop-up window.
+Next, you will need a fork of this repository. Scroll back up to the top of this page and click on the Fork button.
 
-To deploy your just-forked repository, go to the Web Console for your OpenShift cluster and click on the 'Node.js' icon.  In the following window, select 'advanced options' towards the bottom. Use `https://github.com/<your github id>/summit-health-patient-records` for the Git Repository URL and `/site` for the Context Dir. Click 'Create' at the bottom of the window to build and deploy the application.
+![fork](./images/fork.png)
+
+Select your github user name from the pop-up window.
+
+To deploy your just-forked repository, go to the Web Console for your OpenShift cluster and click on the 'Node.js' icon.
+
+![node](./images/node.png)
+
+In the following window, first click 'next' and then select 'advanced options' towards the bottom.
+
+![config](./images/config.png)
+
+Use `https://github.com/<your github id>/summit-health-patient-records` for the Git Repository URL and `/site` for the Context Dir. Click 'Create' at the bottom of the window to build and deploy the application.
 
 Once the app is deployed, you will need to change the port number in the service and the route.  Click on both, choose 'Edit YAML' from the drop-down menu in the uppper right, and change all instances of `8080` to `8060`. Click on the route provided, and login to your new app!
