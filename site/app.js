@@ -12,7 +12,7 @@ logger.debug("launching summit health endpoint");
 
 /* end of dependency setup */
 
-var port = process.env.PORT || 8060;
+var port = process.env.PORT || 8080;
 
 var app = express();
 
@@ -31,7 +31,7 @@ app.get('/info', function(req, res) {
 
   var patientInfo = backendApi.getPatientInfo(req.query.id);
   var patientMedications = backendApi.getPatientMedications(req.query.id);
-  
+
   patientInfo.then(function(patientInfoResult) {
     patientdata.personal = patientInfoResult;
 
