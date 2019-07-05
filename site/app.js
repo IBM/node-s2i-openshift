@@ -16,6 +16,18 @@ var port = process.env.PORT || 8080;
 
 var app = express();
 
+var MODE = {"TEST":1,"Z":2,"OPENSHIFT":3}
+
+var CURRENTMODE = MODE.TEST;
+
+app.post('mode', function(req, res) {
+  logger.debug('called the mode endpoint ' + req.query.mode);
+});
+
+app.get('/mode',function(req, res){
+  res.send({"mode":CURRENTMODE});
+});
+
 app.get('/info', function(req, res) {
 
   logger.debug('called the information endpoint for ' + req.query.id);

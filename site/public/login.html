@@ -18,21 +18,31 @@
 
     <div class="pillar">
       <div class="loginlogo"><img class="summitlogo" src="images/summitlogo.svg"></div>
-        <div class="summitname">Summit Health</div>
-        <div class="disclaimer">Summit Heatlh is a fictional health data and software demonstration. <b>All data within the system is simulated</b>. Any resemblance to a real person is entirely coincidental.</div>
-        <div class="loginform">
-          <form method="post" action="index.html">
-            <div class="box">
-              <h1>Login</h1>
-              <input type="email" id="username" name="email" value="username" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
-              <input type="password" id="password" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
-              <a href="#" onclick="login()">
-                <div id="btn2">Sign In</div>
-              </a> <!-- End Btn2 -->
-            </div> <!-- End Box -->
-          </form>
-          </div>
+      <div class="summitname">Summit Health</div>
+      <div class="disclaimer">Summit Heatlh is a fictional health data and software demonstration. <b>All data within the system is simulated</b>. Any resemblance to a real person is entirely coincidental.</div>
+      <div class="loginform">
+        <form method="post" action="index.html">
+          <div class="box">
+            <h1>Login</h1>
+            <input type="email" id="username" name="email" value="username" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
+            <input type="password" id="password" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
+            <a href="#" onclick="login()">
+              <div id="btn2">Sign In</div>
+            </a> <!-- End Btn2 -->
+          </div> <!-- End Box -->
+        </form>
+      </div>
+
+      <div class="serverswitch">
+        <form action="">
+          <p class="server">Switch server integration:</p>
+          <input class="serverradio" type="radio" name="mainframe" value="mainframe">OpenShift & Z<br>
+          <input class="serverradio" type="radio" name="liberty" value="enterprise">Liberty on OpenShift<br>
+          <input class="serverradio" type="radio" name="unittest" value="other">Local/Test<br>
+        </form>
+      </div>
     </div>
 </body>
 <script src="src/loginController.js"></script>
+
 </html>

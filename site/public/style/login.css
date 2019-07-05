@@ -118,11 +118,29 @@ a {
 .disclaimer {
   width: 200px;
   word-wrap: normal;
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 20px;
   color: #00ABC0;
   text-align: justify;
   justify-self: center;
   align-self: center;
   flex-direction: row;
   margin-bottom: 30px;
+}
+
+.server {
+  color: #00ABC0;
+  font-size: 16px;
+}
+
+.serverradio {
+  margin: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color:pink;
+}
+
+.serverswitch {
+  padding-top: 20px;
+  text-align: justify;
 }

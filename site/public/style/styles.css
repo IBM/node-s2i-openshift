@@ -80,7 +80,7 @@ body, html {
 
 .summit {
   font-weight: medium;
-  font-size: 16px;
+  font-size: 18px;
   color: white;
 }
 
@@ -89,7 +89,7 @@ body, html {
   align-items: center;
   display: flex;
   flex-direction: row;
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
   padding: 0;
 }
