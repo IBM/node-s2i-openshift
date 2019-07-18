@@ -4,17 +4,14 @@
 
 <head>
   <meta charset="utf-8">
-
   <title>Summit Health</title>
   <meta name="description" content="Summit Health Site">
   <meta name="Anton McConville" content="Summit Health">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
   <link rel="stylesheet" href="style/styles.css?v=1.0">
   <link rel="icon" type="image/png" href="images/summitlogo@2x.png">
-
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
-   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
-
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body onload="retrievePatientInformation()">
@@ -27,17 +24,20 @@
         </div>
         <menu class="menu">
           <menuitem class="lit">information</menuitem>
-          <a class="dimmed" href="./measurements.html"><menuitem class="dimmed">measurements</menuitem></a>
+          <a class="dimmed" href="./measurements.html">
+            <menuitem class="dimmed">measurements</menuitem></a>
           <!-- <a class="dimmed" href="./labs.html"><menuitem class="dimmed">lab results</menuitem></a> -->
-          <a class="dimmed" href="./jee.html"><menuitem class="dimmed">architecture</menuitem></a>
-          <a class="dimmed" href="./settings.html"><menuitem class="dimmed">settings</menuitem></a>
+          <a class="dimmed" href="./jee.html">
+            <menuitem class="dimmed">architecture</menuitem></a>
+          <a class="dimmed" href="./settings.html">
+            <menuitem class="dimmed">settings</menuitem></a>
         </menu>
-        <a href="#" onclick="logout()"><div class="account" id="logout"></div></a>
+        <a href="#" onclick="logout()">
+          <div class="account" id="logout"></div>
+        </a>
       </div>
     </div>
-
     <div class="boxes">
-
       <div class="box">
         <div class="boxheader">
           <img class="boxicon" src="/images/clipboard.svg">
@@ -46,51 +46,44 @@
         <div class="info">
           <div class="personal">
             <div class="name" id="name"></div>
-            <div class="details" id ="details"></div>
-            <div class="street" id ="street"></div>
+            <div class="details" id="details"></div>
+            <div class="street" id="street"></div>
             <div class="city" id="city"></div>
             <div class="zipcode" id="zipcode"></div>
           </div>
           <div class="links">
             <img class="creditcard" src="/images/creditcard.svg">
           </div>
-
         </div>
       </div>
-
       <div class="box" id="appointments">
-          <div class="boxheader">
-            <img class="boxicon" src="/images/doctor.svg">
-            <div class="boxlabel">Appointments</div>
-          </div>
+        <div class="boxheader">
+          <img class="boxicon" src="/images/doctor.svg">
+          <div class="boxlabel">Appointments</div>
+        </div>
       </div>
-
       <div class="box" id="medications">
-          <div class="boxheader">
-            <img class="boxicon" src="/images/medication.svg">
-            <div class="boxlabel">Medications</div>
-          </div>
+        <div class="boxheader">
+          <img class="boxicon" src="/images/medication.svg">
+          <div class="boxlabel">Medications</div>
+        </div>
       </div>
-
       <div class="box">
         <div class="map" id='map'></div>
       </div>
-
     </div>
-
   </div>
-
 </body>
 
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoiYW50b25tYyIsImEiOiJjaW82am5xOGkwMmY0djRrcWtlajlnNWdwIn0.ZniLehzcno7t1dO__lhe5Q';
-var map = new mapboxgl.Map({
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYW50b25tYyIsImEiOiJjaW82am5xOGkwMmY0djRrcWtlajlnNWdwIn0.ZniLehzcno7t1dO__lhe5Q';
+  var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/antonmc/cjr27i9iw0wbq2rnwtvkrbgog',
     // stylesheet location
     center: [-74.50, 40], // starting position [lng, lat]
     zoom: 9 // starting zoom
-});
+  });
 </script>
 <script src="src/informationController.js"></script>
 <script src="src/loginController.js"></script>

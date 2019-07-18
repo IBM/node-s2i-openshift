@@ -1,9 +1,9 @@
 var request = require('request');
-var API_URL = "https://api.us.apiconnect.ibmcloud.com/spbodieusibmcom-kenishia/sb/";
+// var API_URL = "https://api.us.apiconnect.ibmcloud.com/spbodieusibmcom-kenishia/sb/";
 
-function getPatientInfo(patientID) {
+function getPatientInfo(url, patientID) {
 	return new Promise(function(resolve, reject) {
-		request(API_URL + "getInfo/patients/" + patientID, function (error, response, body) {
+		request(url + "getInfo/patients/" + patientID, function (error, response, body) {
 	 		if (!error && response.statusCode == 200) {
 
 				console.log(body)
@@ -25,9 +25,9 @@ function getPatientInfo(patientID) {
 	})
 }
 
-function getPatientMedications(patientID) {
+function getPatientMedications(url, patientID) {
 	return new Promise(function(resolve, reject) {
-		request(API_URL + "getInfo/prescription/" + patientID, function (error, response, body) {
+		request(url + "getInfo/prescription/" + patientID, function (error, response, body) {
 			var medications = [];
 	 		if (!error && response.statusCode == 200) {
 	 			body = JSON.parse(body);
@@ -53,9 +53,9 @@ function getPatientMedications(patientID) {
 	})
 }
 
-function getPatientMeasurements(patientID) {
+function getPatientMeasurements(url, patientID) {
 	return new Promise(function(resolve, reject) {
-		request(API_URL + "listObs/" + patientID, function (error, response, body) {
+		request(url + "listObs/" + patientID, function (error, response, body) {
 			var measurements = {};
 	 		if (!error && response.statusCode == 200) {
 	 			body = JSON.parse(body);
@@ -115,9 +115,9 @@ function getPatientMeasurements(patientID) {
 	})
 }
 
-function patientLogin(username, password) {
+function patientLogin(url, username, password) {
 	return new Promise(function(resolve, reject) {
-		request.post({url: API_URL + "login/user", json: {"UID":username,"PASS":password}}, function (error, response, body) {
+		request.post({url: url + "login/user", json: {"UID":username,"PASS":password}}, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				if (body["ResultSet Output"].length > 0) {
 					resolve(body["ResultSet Output"][0]["PATIENTID"]);

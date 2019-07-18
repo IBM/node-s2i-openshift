@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" href="images/summitlogo@2x.png">
 </head>
 
-<body onload="retrieveMeasurementInformation()">
+<body onload="checkurl()">
   <div class="container">
     <div class="banner">
       <div class="control">
@@ -49,19 +49,20 @@
         </div>
 
         <div class="buttons">
-          <div class="settingsbutton settingsbuttonselected">
+          <div id="localbutton" class="settingsbutton settingsbuttonselected" onclick="chooseLocal()">
             <div class="settingslabel">node.js</div>
             <div><img class="settingsicon" src="./images/testlogo.svg" alt=""></div>
           </div>
-          <div class="settingsbutton">
+          <div id="cobolbutton" class="settingsbutton" onclick="chooseCobol()">
             <div class="settingslabel">cobol</div>
             <div><img class="settingsicon" src="./images/zlogo.svg" alt=""></div>
           </div>
-          <div class="settingsbutton">
+          <div id="javabutton" class="settingsbutton" onclick="chooseJava()">
             <div class="settingslabel">java</div>
             <div><img class="settingsicon" src="./images/openshiftlogo.svg" alt=""></div>
           </div>
         </div>
+        <input type="text" id="url" name="url" placeholder="enter backend url here" class="urlfield" oninput="checkurl()"/>
         <div class="runmode">currently running in test mode, with node js</div>
 
       </div>
@@ -72,6 +73,6 @@
   </div>
 </body>
 
-<script src="src/measurementsController.js"></script>
+<script src="src/settings.js"></script>
 
 </html>

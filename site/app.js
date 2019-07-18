@@ -7,6 +7,7 @@ var log4js = require('log4js');
 var logger = log4js.getLogger();
 var backendApi = require("./backendApi")
 
+
 logger.level = 'debug';
 logger.debug("launching summit health endpoint");
 
@@ -16,43 +17,74 @@ var port = process.env.PORT || 8080;
 
 var app = express();
 
-var MODE = {"TEST":1,"Z":2,"OPENSHIFT":3}
+var MODE = {
+  "TEST": 1,
+  "Z": 2,
+  "OPENSHIFT": 3
+}
 
 var CURRENTMODE = MODE.TEST;
 
-app.post('mode', function(req, res) {
+var API_URL = ""
+
+app.post('/mode', function(req, res) {
   logger.debug('called the mode endpoint ' + req.query.mode);
+  logger.debug('called the mode endpoint ' + req.query.url);
+  CURRENTMODE = req.query.mode;
+  API_URL = req.query.url;
+  res.send({ "modes": MODE,
+    "mode": CURRENTMODE
+  });
 });
 
-app.get('/mode',function(req, res){
-  res.send({"mode":CURRENTMODE});
+app.get('/mode', function(req, res) {
+  res.send({ "modes": MODE,
+    "mode": CURRENTMODE
+  });
 });
 
 app.get('/info', function(req, res) {
 
   logger.debug('called the information endpoint for ' + req.query.id);
 
-  var patientdata = {
+  var patientdata;
 
-    personal: {},
+  if (CURRENTMODE == MODE.TEST) {
+    patientdata = {
+      "personal": {
+        "name": "Ralph DAlmeida",
+        "age": 38,
+        "gender": "male",
+        "street": "34 Main Street",
+        "city": "Toronto",
+        "zipcode": "M5H 1T1"
+      },
+      "medications": ["Metoprolol", "ACE inhibitors", "Vitamin D"],
+      "appointments": ["2018-01-15 1:00 - Dentist", "2018-02-14 4:00 - Internal Medicine", "2018-09-30 8:00 - Pediatry"]
+    }
 
-    medications: [],
+    res.send(patientdata);
+  } else {
 
-    appointments: ['2018-01-15 1:00 - Dentist', '2018-02-14 4:00 - Internal Medicine', '2018-09-30 8:00 - Pediatry']
-  }
+    patientdata = {
+      personal: {},
+      medications: [],
+      appointments: ['2018-01-15 1:00 - Dentist', '2018-02-14 4:00 - Internal Medicine', '2018-09-30 8:00 - Pediatry']
+    }
 
-  var patientInfo = backendApi.getPatientInfo(req.query.id);
-  var patientMedications = backendApi.getPatientMedications(req.query.id);
+    var patientInfo = backendApi.getPatientInfo(API_URL, req.query.id);
+    var patientMedications = backendApi.getPatientMedications(API_URL, req.query.id);
 
-  patientInfo.then(function(patientInfoResult) {
-    patientdata.personal = patientInfoResult;
+    patientInfo.then(function(patientInfoResult) {
+      patientdata.personal = patientInfoResult;
 
-    patientMedications.then(function(patientMedicationsResult) {
-      patientdata.medications = patientMedicationsResult;
+      patientMedications.then(function(patientMedicationsResult) {
+        patientdata.medications = patientMedicationsResult;
 
-      res.send(patientdata);
+        res.send(patientdata);
+      })
     })
-  })
+  }
 
 });
 
@@ -60,13 +92,30 @@ app.get('/measurements', function(req, res) {
 
   logger.debug('called the measurements endpoint for ' + req.query.id);
 
-  var patientMeasurements = backendApi.getPatientMeasurements(req.query.id);
+  var measurements;
+
+  if (CURRENTMODE == MODE.TEST) {
+
+  measurements = {
+    smokerstatus: 'Former smoker',
+    dia: 88,
+    sys: 130,
+    bmi: 19.74,
+    bmirange: 'normal',
+    weight: 54.42,
+    height: 1.6603
+  }
+
+    res.send(measurements);
+  }else{
+
+  var patientMeasurements = backendApi.getPatientMeasurements(API_URL, req.query.id);
 
   patientMeasurements.then(function(patientMeasurementsResult) {
     measurements = patientMeasurementsResult;
-
     res.send(measurements);
   })
+}
 
 });
 
@@ -74,10 +123,19 @@ app.post('/login', function(req, res) {
 
   logger.debug('called the login endpoint for ' + req.query.username);
 
-  var patientLogin = backendApi.patientLogin(req.query.username, req.query.password);
+  var patientLogin = backendApi.patientLogin(API_URL, req.query.username, req.query.password);
+
+  console.log(patientLogin)
 
   patientLogin.then(function(id) {
-    res.send({id: id});
+
+
+    console.log(id)
+    res.send({
+      id: id
+    });
+
+
   })
 
 })
