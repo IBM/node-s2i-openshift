@@ -1,1 +1,14 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300"><defs><style>.cls-1,.cls-3{fill:none;}.cls-1{clip-rule:evenodd;}.cls-2{clip-path:url(#clip-path);}.cls-3{stroke:#0f4c81;stroke-linecap:round;stroke-linejoin:round;stroke-width:7px;}</style><clipPath id="clip-path"><polygon class="cls-1" points="-1895 244.16 -1706.67 244.16 -1706.9 243.71 -1645 243.71 -1706.57 120.57 -1737.52 182.47 -1800.84 55.84 -1895 244.16"/></clipPath></defs><title>creditcard</title><g id="_Group_" data-name="&lt;Group&gt;"><rect class="cls-3" x="30.53" y="64.03" width="240" height="172.03" rx="2.16" ry="2.16"/></g><rect id="_Rectangle_" data-name="&lt;Rectangle&gt;" class="cls-3" x="30.53" y="99.47" width="240" height="26.6"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#444444;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<title>creditcard</title>
+<g id="_Group_">
+	<path class="st0" d="M32.7,64h235.7c1.2,0,2.2,1,2.2,2.2v167.7c0,1.2-1,2.2-2.2,2.2H32.7c-1.2,0-2.2-1-2.2-2.2V66.2
+		C30.5,65,31.5,64,32.7,64z"/>
+</g>
+<rect id="_Rectangle_" x="30.5" y="99.5" class="st0" width="240" height="26.6"/>
+</svg>

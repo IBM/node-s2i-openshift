@@ -2,8 +2,7 @@
 
 .settingstext {
   font-size: 15px;
-  color: #0F4C81;
-  font-weight: bold;
+  color: #444444;
   line-height: 26px;
   margin-top: 30px;
 }
@@ -14,7 +13,7 @@
   flex-direction: row;
   justify-content: space-between;
   font-size: 20px;
-  color: #0F4C81;
+  color: #444444;
   font-weight: bold;
 }
 

@@ -16,7 +16,7 @@ p {
 
 h1 {
   font-size: 20px;
-  color: #00ABC0;
+  color: #444444;
 }
 
 .box {
@@ -27,17 +27,17 @@ h1 {
   justify-content: center;
   align-items: center;
   /* border-radius: 6px; */
-  border: #CCEEF2 1px solid;
+  border: #FFE3DB 1px solid;
   border-radius: 5px;
 }
 
 .email {
-  background: #CCEEF2;
-  border: #00ABC0 1px;
-  /* border-bottom: #00ABC0 2px solid; */
+  background: #FFF4F1;
+  border: #444444 1px;
+  /* border-bottom: #444444 2px solid; */
   padding: 8px;
   width: 180px;
-  color: #00ABC0;
+  color: #444444;
   margin-bottom: 10px;
   font-size: 14px;
   border-radius: 4px;
@@ -53,7 +53,7 @@ h1 {
 }
 
 .btn {
-  background: #00ABC0;
+  background: #444444;
   width: 125px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -72,13 +72,13 @@ h1 {
 }
 
 #btn2 {
-  background: #00ABC0;
+  background: #444444;
   width: 125px;
   padding-top: 5px;
   padding-bottom: 5px;
   color: white;
   border-radius: 4px;
-  border: #00ABC0 1px solid;
+  border: #444444 1px solid;
   margin-top: 5px;
   margin-bottom: 20px;
   margin-left: 10px;
@@ -100,15 +100,16 @@ h1 {
   align-content: center;
 }
 
-.summitname {
-  color: #00ABC0;
+.Fictionalname {
+  color: #444444;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 30px;
 }
 
-.summitlogo {
+.Fictionallogo {
   height: 200px;
+  padding:50px;
 }
 
 a {
@@ -120,7 +121,7 @@ a {
   word-wrap: normal;
   font-size: 14px;
   line-height: 20px;
-  color: #00ABC0;
+  color: #444444;
   text-align: justify;
   justify-self: center;
   align-self: center;
@@ -129,7 +130,7 @@ a {
 }
 
 .server {
-  color: #00ABC0;
+  color: #444444;
   font-size: 16px;
 }
 

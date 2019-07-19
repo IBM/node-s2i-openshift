@@ -1,1 +1,16 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300"><defs><style>.cls-1,.cls-3{fill:none;}.cls-1{clip-rule:evenodd;}.cls-2{clip-path:url(#clip-path);}.cls-3{stroke:#0f4c81;stroke-linecap:round;stroke-miterlimit:10;stroke-width:6px;}</style><clipPath id="clip-path"><polygon class="cls-1" points="-1575 244.16 -1386.67 244.16 -1386.9 243.71 -1325 243.71 -1386.57 120.57 -1417.52 182.47 -1480.84 55.84 -1575 244.16"/></clipPath></defs><title>beaker</title><path class="cls-3" d="M127.42,30.12V137.18L62.63,242.39c-1.51,2.62-4.06,8.09-4.06,12.38h0c0,9,7.53,15.36,16.51,15.36H225.59c9,0,16.51-6.37,16.51-15.36h0c0-4.29-2.55-9.76-4.07-12.38L173.26,137.18V30.12"/><line class="cls-3" x1="111.44" y1="30.12" x2="188.66" y2="30.12"/><line id="_Path_" data-name="&lt;Path&gt;" class="cls-3" x1="127.42" y1="54.54" x2="150.33" y2="54.54"/><line id="_Path_2" data-name="&lt;Path&gt;" class="cls-3" x1="127.42" y1="76.87" x2="150.33" y2="76.87"/><line id="_Path_3" data-name="&lt;Path&gt;" class="cls-3" x1="127.42" y1="99.19" x2="150.33" y2="99.19"/><line class="cls-3" x1="99.64" y1="182.3" x2="201.04" y2="182.3"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-miterlimit:10;}
+</style>
+<title>beaker</title>
+<path class="st0" d="M127.4,30.1v107.1L62.6,242.4c-1.5,2.6-4.1,8.1-4.1,12.4l0,0c0,9,7.5,15.4,16.5,15.4h150.5
+	c9,0,16.5-6.4,16.5-15.4l0,0c0-4.3-2.6-9.8-4.1-12.4l-64.8-105.2V30.1"/>
+<line class="st0" x1="111.4" y1="30.1" x2="188.7" y2="30.1"/>
+<line id="_Path_" class="st0" x1="127.4" y1="54.5" x2="150.3" y2="54.5"/>
+<line id="_Path_2" class="st0" x1="127.4" y1="76.9" x2="150.3" y2="76.9"/>
+<line id="_Path_3" class="st0" x1="127.4" y1="99.2" x2="150.3" y2="99.2"/>
+<line class="st0" x1="99.6" y1="182.3" x2="201" y2="182.3"/>
+</svg>

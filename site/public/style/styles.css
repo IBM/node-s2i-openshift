@@ -35,35 +35,42 @@ body, html {
   height: 60px;
   width: 160px;
   font-size: 14px;
-  color: #0F4C81;
+  color: #444444;
   padding: 10px;
-  background: #eaf8f9;
-  border: 1px solid #00ABC0;
+  background: #F6F9FC;
 }
 
 .herotitle {
   font-size: 13px;
   font-weight: bold;
-  color: #0F4C81;
+  color: #444444;
 }
 
 .heroinstruction {
   margin-top: 10px;
   font-size: 13px;
   font-weight: normal;
-  color: #0F4C81;
+  color: #444444;
+}
+
+.disclaimer {
+  margin: 10px;
+  color: #888;
+  font-size: 14px;
+  margin-top: 50px;
 }
 
 .banner {
   height: 60px;
   width: 100%;
-  background: #00ABC0;
+  background: #FFF4F2;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  ;
   align-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .brand {
@@ -78,10 +85,10 @@ body, html {
   margin: 10px;
 }
 
-.summit {
+.Fictional {
   font-weight: medium;
   font-size: 18px;
-  color: white;
+  color: #444;
 }
 
 .menu {
@@ -101,7 +108,7 @@ body, html {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  color: white;
+  color: #444;
 }
 
 menuitem {
@@ -112,7 +119,7 @@ menuitem {
   opacity: .6;
   font-weight: normal;
   text-decoration: none;
-  color: white;
+  color: #444;
 }
 
 .dimmed:hover {
@@ -123,7 +130,7 @@ menuitem {
   opacity: 1;
   font-weight: bold;
   text-decoration: none;
-  color: white;
+  color: #444;
 }
 
 .boxes {
@@ -145,16 +152,27 @@ menuitem {
 .box {
   width: 300px;
   height: 300px;
-  border: 1px solid #99DDE5;
+  /* border: 1px solid #99DDE5; */
   margin: 20px;
   margin-top: 40px;
   margin-bottom: 0px;
+  display: block;
+  font-size: 16px;
+  line-height: 1.5;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.05) 0px 5px 15px 0px;
+  transform: translate3d(0px, 0px, 0px);
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  /* padding: 20px; */
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+  transition: all 150ms ease-out 0s;
 }
 
 .boxheader {
-  background: #CCEEF2;
+  background: #F6F9FC;
   height: 50px;
-  border-bottom: 1px solid #99DDE5;
   width: 100%;
   align-items: center;
   display: flex;
@@ -168,13 +186,13 @@ menuitem {
 }
 
 .boxlabel {
-  color: #0F4C81;
+  color: #444;
   font-weight: bold;
 }
 
 .boxitem {
   height: 42px;
-  border-bottom: 1px solid #99DDE5;
+  border-bottom: 1px solid #F6F9FC;
   width: 100%;
   align-items: center;
   display: flex;
@@ -193,7 +211,7 @@ menuitem {
 }
 
 .boxitemlabel {
-  color: #0F4C81;
+  color: #444;
   font-size: 12px;
   font-weight: normal;
 }
@@ -201,7 +219,7 @@ menuitem {
 .info {
   display: flex;
   flex-direction: row;
-  color: #0F4C81;
+  color: #444;
   font-size: 14px;
 }
 
@@ -360,7 +378,7 @@ menuitem {
 }
 
 .smoker {
-  color: #0F4C81;
+  color: #444444;
   display: flex;
   flex-direction: row;
   padding: 20px;
@@ -386,7 +404,7 @@ a {
   display: flex;
   flex-direction: row;
   padding-top: 30px;
-  border-top: 1px dashed #00ABC0;
+  border-top: 1px dashed #eeeeee;
 }
 
 .canvas {
@@ -408,7 +426,7 @@ a {
   font-size: 13px;
   font-weight: bold;
   /* margin: 10px; */
-  color: #0F4C81;
+  color: #444444;
   padding: 10px;
   background: #eaf8f9;
   min-height: 40px;
@@ -418,14 +436,14 @@ a {
   font-size: 11px;
   font-weight: normal;
   margin: 10px;
-  color: #0F4C81;
+  color: #444444;
 }
 
 .archtechlisttile {
   font-size: 12px;
   font-weight: bold;
   /* margin: 10px; */
-  color: #0F4C81;
+  color: #444444;
   border-top: 1px solid #eaf8f9;
   padding: 5px;
   padding-left: 10px;
@@ -438,7 +456,7 @@ a {
   font-size: 11px;
   font-weight: normal;
   /* margin-left: -10px; */
-  color: #0F4C81;
+  color: #444444;
   line-height: 18px;
   border-bottom: 1px solid #eaf8f9;
   border-top: 1px solid #eaf8f9;
@@ -454,14 +472,14 @@ a {
   font-size: 11px;
   font-weight: normal;
   margin: 10px;
-  color: #0F4C81;
+  color: #444444;
 }
 
 .archtechdetails {
   font-size: 12px;
   font-weight: normal;
   margin: 10px;
-  color: #0F4C81;
+  color: #444444;
   line-height: 18px;
   min-height: 180px;
 }
@@ -509,18 +527,17 @@ a {
 
 .itemstep {
   height: 40px;
-  text-align: center;
-  width: 40px;
-  background: #eaf8f9;
-  border-radius: 20px;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  display: flex;
-  color: #0F4C81;
-  font-size: 14px;
-  font-weight: bold;
-  border: 1px solid #00ABC0;
+text-align: center;
+width: 40px;
+background: #F6F9FC;
+border-radius: 20px;
+justify-content: center;
+align-items: center;
+align-content: center;
+display: flex;
+color: #444444;
+font-size: 14px;
+font-weight: bold;
 }
 
 .stepbox {
@@ -543,5 +560,5 @@ a {
   align-content: center;
   display: flex;
   font-size: 12px;
-  color: #0F4C81;
+  color: #444444;
 }

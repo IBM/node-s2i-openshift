@@ -54,9 +54,9 @@ var AQUA = "#00ABC0";
 var NAVY = "#0F4C81";
 var AQUALIGHT = "#99DDE5";
 var EXTRALIGHT = "#CCEEF2";
-var HIGHLIGHT = "#F88F58";
-var HIGHFILL = "#fcddcc";
-var HIGHCOMPONENTFILL = "#fab08a";
+var HIGHLIGHT = "#FF7CA8";
+var HIGHFILL = "#FFE2EC";
+var HIGHCOMPONENTFILL = "#FFB6CF";
 
 var LOWFILL = "#e5f6f8";
 var LOWSTROKE = "#cceef2";
