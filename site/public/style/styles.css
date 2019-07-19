@@ -322,12 +322,12 @@ menuitem {
 
 .rulea {
   width: 50%;
-  border-right: 1px solid #99DDE5;
+  border-right: 1px solid #444444;
 }
 
 .height {
   font-size: 14px;
-  color: #99DDE5;
+  color: #444444;
   align-self: center;
   height: 30px;
   margin-top: 10px;
@@ -361,7 +361,7 @@ menuitem {
 }
 
 .weightitem {
-  color: #255D8C;
+  color: #444444;
   font-size: 12px;
   padding: 10px;
 }
@@ -374,7 +374,7 @@ menuitem {
 }
 
 .healthitem {
-  color: #00ABC0;
+  color: #444444;
 }
 
 .smoker {
@@ -417,7 +417,7 @@ a {
   width: 230px;
   margin-left: 20px;
   background: white;
-  border: 1px solid #00ABC0;
+  border: 1px solid #F6F9FC;
   display: flex;
   flex-direction: column;
 }
@@ -428,7 +428,7 @@ a {
   /* margin: 10px; */
   color: #444444;
   padding: 10px;
-  background: #eaf8f9;
+  background: #F6F9FC;
   min-height: 40px;
 }
 
@@ -444,10 +444,10 @@ a {
   font-weight: bold;
   /* margin: 10px; */
   color: #444444;
-  border-top: 1px solid #eaf8f9;
+  border-top: 1px solid #F6F9FC;
   padding: 5px;
   padding-left: 10px;
-  background: #eaf8f9;
+  background: #F6F9FC;
   line-height: 18px;
   /* padding-left: 10px; */
 }
@@ -458,8 +458,8 @@ a {
   /* margin-left: -10px; */
   color: #444444;
   line-height: 18px;
-  border-bottom: 1px solid #eaf8f9;
-  border-top: 1px solid #eaf8f9;
+  border-bottom: 1px solid #F6F9FC;
+  border-top: 1px solid #F6F9FC;
   padding-bottom: 20px;
   padding-top: 20px;
   margin-top: 0;
