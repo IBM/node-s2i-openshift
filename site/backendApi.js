@@ -6,13 +6,11 @@ function getPatientInfo(url, patientID) {
 		request(url + "getInfo/patients/" + patientID, function (error, response, body) {
 	 		if (!error && response.statusCode == 200) {
 
-				console.log(body)
+				body = JSON.parse(body);
 
-	 			body = JSON.parse(body);
 	    		var patientInfo = {
 					      name: body["HCCMAREA"]["CA_PATIENT_REQUEST"]["CA_FIRST_NAME"] + " " + body["HCCMAREA"]["CA_PATIENT_REQUEST"]["CA_LAST_NAME"],
 					      age: getAge(body["HCCMAREA"]["CA_PATIENT_REQUEST"]["CA_DOB"]),
-					      gender: 'male',
 					      street: body["HCCMAREA"]["CA_PATIENT_REQUEST"]["CA_ADDRESS"],
 					      city: body["HCCMAREA"]["CA_PATIENT_REQUEST"]["CA_CITY"],
 					      zipcode: body["HCCMAREA"]["CA_PATIENT_REQUEST"]["CA_POSTCODE"]
@@ -32,9 +30,6 @@ function getPatientMedications(url, patientID) {
 	 		if (!error && response.statusCode == 200) {
 	 			body = JSON.parse(body);
 
-				console.log(body)
-
-
 	 			try {
 					var medicationData = body["GETMEDO"]["CA_LIST_MEDICATION_REQUEST"]["CA_MEDICATIONS"];
 				} catch(e) {
@@ -42,12 +37,35 @@ function getPatientMedications(url, patientID) {
 				}
 
 	 			for (var i = 0, len = medicationData.length; i < len; i++) {
-	 				medications.push(medicationData[i]["CA_DRUG_NAME"])
+					if (medications.indexOf(medicationData[i]["CA_DRUG_NAME"]) === -1) {
+						medications.push(medicationData[i]["CA_DRUG_NAME"]);
+					}		
 	 			}
 
 				return resolve(medications);
 	  		} else {
 	  			return resolve(medications);
+	  		}
+	  	});
+	})
+}
+
+function getPatientAppointments(url, patientID) {
+	return new Promise(function(resolve, reject) {
+		request(url + "appointments/list/" + patientID, function (error, response, body) {
+			var appointments = [];
+	 		if (!error && response.statusCode == 200) {
+
+				body = JSON.parse(body);
+				 
+				var appointmentsData = body["ResultSet Output"]
+
+	 			for (var i = 0, len = appointmentsData.length; i < len; i++) {
+					appointments.push(appointmentsData[i]["APPT_DATE"].trim() + " " + appointmentsData[i]["APPT_TIME"].trim().replace(".",":").substring(0,5) + " - " + appointmentsData[i]["MED_FIELD"].trim());
+				}
+				return resolve(appointments);
+	  		} else {
+	  			return resolve(appointments);
 	  		}
 	  	});
 	})
@@ -145,5 +163,6 @@ function getAge(dateString)
 
 module.exports.getPatientInfo = getPatientInfo;
 module.exports.getPatientMedications = getPatientMedications;
+module.exports.getPatientAppointments = getPatientAppointments;
 module.exports.getPatientMeasurements = getPatientMeasurements;
 module.exports.patientLogin = patientLogin;

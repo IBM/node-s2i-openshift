@@ -69,11 +69,12 @@ app.get('/info', function(req, res) {
     patientdata = {
       personal: {},
       medications: [],
-      appointments: ['2018-01-15 1:00 - Dentist', '2018-02-14 4:00 - Internal Medicine', '2018-09-30 8:00 - Pediatry']
+      appointments: []
     }
 
     var patientInfo = backendApi.getPatientInfo(API_URL, req.query.id);
     var patientMedications = backendApi.getPatientMedications(API_URL, req.query.id);
+    var patientAppointments = backendApi.getPatientAppointments(API_URL, req.query.id);
 
     patientInfo.then(function(patientInfoResult) {
       patientdata.personal = patientInfoResult;
@@ -81,7 +82,11 @@ app.get('/info', function(req, res) {
       patientMedications.then(function(patientMedicationsResult) {
         patientdata.medications = patientMedicationsResult;
 
-        res.send(patientdata);
+        patientAppointments.then(function(patientAppointmentsResult) {
+          patientdata.appointments = patientAppointmentsResult;
+
+          res.send(patientdata);
+        })
       })
     })
   }

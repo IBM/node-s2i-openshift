@@ -44,7 +44,7 @@ function fillUI(patientdata) {
   patientname.innerHTML = patientdata.personal.name;
 
   var patientdetails = document.getElementById('details');
-  patientdetails.innerHTML = patientdata.personal.age + " years old, " + patientdata.personal.gender;
+  patientdetails.innerHTML = patientdata.personal.age + " years old";
 
   var patientstreet = document.getElementById('street');
   patientstreet.innerHTML = patientdata.personal.street;
