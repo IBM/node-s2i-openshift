@@ -17,6 +17,13 @@ function checkurl() {
     cobolbutton.style.opacity = 0.3;
     javabutton.style.opacity = 0.3;
   }
+
+  getMode();
+}
+
+function setRunMode(text) {
+  var rm = document.getElementById('runmode');
+  rm.innerHTML = text;
 }
 
 function getMode() {
@@ -73,17 +80,14 @@ function highlightJava() {
   cobolbutton.classList.remove("settingsbuttonselected");
   javabutton.classList.add('settingsbuttonselected');
   javabutton.style.opacity = 1;
+  setRunMode('Currently reading data from a Java OpenShift microservice');
 }
 
 
 function chooseJava() {
   if (validURL(urlfield.value)) {
-
     highlightJava();
     setModeOnServer(MODE.OPENSHIFT);
-
-    // sessionStorage.setItem("patientUImode", 3);
-
     console.log('clicked java');
   }
 }
@@ -93,9 +97,10 @@ function highlightCobol() {
   javabutton.classList.remove("settingsbuttonselected");
   cobolbutton.classList.add('settingsbuttonselected');
   cobolbutton.style.opacity = 1;
+  setRunMode('Currently reading data from a Cobol Z application');
 }
 
-function setModeOnServer(mode){
+function setModeOnServer(mode) {
 
   var url = "./mode";
   var params = "mode=" + mode + "&url=" + urlfield.value;
@@ -121,13 +126,9 @@ function setModeOnServer(mode){
 
 function chooseCobol() {
   if (validURL(urlfield.value)) {
-
     setModeOnServer(MODE.Z);
     highlightCobol();
-
     console.log('clicked cobol');
-
-
   }
 }
 
@@ -135,12 +136,11 @@ function highlightLocal() {
   localbutton.classList.add("settingsbuttonselected");
   javabutton.classList.remove("settingsbuttonselected");
   cobolbutton.classList.remove('settingsbuttonselected');
+  setRunMode('Currently reading data from a Node OpenShift microservice - demo mode');
 }
 
 function chooseLocal() {
   setModeOnServer(MODE.TEST);
   highlightLocal();
-  // sessionStorage.setItem("patientUImode", MODE.TEST);
-  // window.location = '/login.html';
   console.log('clicked local');
 }

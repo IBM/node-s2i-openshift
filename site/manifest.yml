@@ -3,6 +3,6 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: summithealth
-  host: summithealth
+  name: Examplehealth
+  host: Examplehealth
   disk_quota: 1024M

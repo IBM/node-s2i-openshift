@@ -1,8 +1,8 @@
 
 var generalInfo = {
-  title: "Summit Health Software Architecture",
+  title: "Example Health Software Architecture",
   subtitle: "An Open Source Case Study",
-  description: "Summit Health is an experimental project, and open source reference architecture for integrating a traditional data system, with modern cloud technology.",
+  description: "Example Health is an experimental project, and open source reference architecture for integrating a traditional data system, with modern cloud technology.",
   technologies: ["IBM Z", "IBM Cloud Kubernetes Service", "IBM Cloud Private", "IBM Watson Data Platform", "IBM API Connect"],
   pattern: ""
 }
@@ -274,7 +274,7 @@ function openpattern() {
         break;
 
       case 'frontend':
-        window.open('https://github.com/IBM/summit-health-patient-records');
+        window.open('https://github.com/IBM/Example-health-patient-records');
         break;
 
       case 'ml':
@@ -282,7 +282,7 @@ function openpattern() {
         break;
 
       case 'analytics':
-        window.open('https://github.com/IBM/summit-health-analytics');
+        window.open('https://github.com/IBM/Example-health-analytics');
         break;
 
       default:

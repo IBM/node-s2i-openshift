@@ -1,7 +1,7 @@
 {
-  "name": "summit",
+  "name": "Example",
   "version": "1.0.0",
-  "description": "summit health prototype",
+  "description": "Example health prototype",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"

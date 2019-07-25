@@ -13,19 +13,19 @@ This project stands alone in test mode, or integrates with associated projects [
 ![architecture](./design/architecture@2x.png)
 
 
-#### Summit Health Context
+#### Example Health Context
 
-Summit Health is a fictional, conceptual healthcare/insurance type company. It is imagined to have been around a long time, and has 100s of thousands of patient records in an SQL database connected to a either a mainframe, or a monolithic Java backend.
+Example Health is a fictional, conceptual healthcare/insurance type company. It is imagined to have been around a long time, and has 100s of thousands of patient records in an SQL database connected to a either a mainframe, or a monolithic Java backend.
 
 The business rules for the system is written in COBOL or Java. It has some entitlement rules, prescription rules, coverage rules coded in there.
 
-Summit's health records look very similar to the health records of most insurance companies.
+Example's health records look very similar to the health records of most insurance companies.
 
 Here's a view a client might see when they log in:
 
 ![screenshot](./design/mockup.png)
 
-Summit has recently started understanding how machine learning on some of the patient records, might surface interesting insights. There is lots of talk about this among some of the big data companies.
+Example has recently started understanding how machine learning on some of the patient records, might surface interesting insights. There is lots of talk about this among some of the big data companies.
 
 https://ai.googleblog.com/2018/05/deep-learning-for-electronic-health.html
 
@@ -33,7 +33,7 @@ https://blog.adafruit.com/2018/04/16/machine-learning-helps-to-grok-blood-test-r
 
 [ concept screenshot to come ]
 
-Summit has also heard a lot about cloud computing. There is a lot of traditional code in the mainframe, and it works well for now ... but Summit think it may be a complimentary opportunity to explore some machine learning in the cloud ( either public or private )
+Example has also heard a lot about cloud computing. There is a lot of traditional code in the mainframe, and it works well for now ... but Example think it may be a complimentary opportunity to explore some machine learning in the cloud ( either public or private )
 
 Their CTO sees an architecture like this:
 
@@ -60,6 +60,6 @@ In the following window, first click 'next' and then select 'advanced options' t
 
 ![config](./images/config.png)
 
-Use `https://github.com/<your github id>/summit-health-patient-records` for the Git Repository URL and `/site` for the Context Dir. Click 'Create' at the bottom of the window to build and deploy the application.
+Use `https://github.com/<your github id>/Example-health-patient-records` for the Git Repository URL and `/site` for the Context Dir. Click 'Create' at the bottom of the window to build and deploy the application.
 
 Once the app is deployed, you will need to change the port number in the service and the route.  Click on both, choose 'Edit YAML' from the drop-down menu in the uppper right, and change all instances of `8080` to `8060`. Click on the route provided, and login to your new app!
