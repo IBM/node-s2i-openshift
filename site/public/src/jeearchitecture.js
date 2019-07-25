@@ -158,7 +158,7 @@ function openpattern() {
         break;
 
       case 'frontend':
-        window.open('https://github.com/IBM/summit-health-patient-records');
+        window.open('https://github.com/IBM/Example-health-patient-records');
         break;
 
       case 'ml':
@@ -166,7 +166,7 @@ function openpattern() {
         break;
 
       case 'analytics':
-        window.open('https://github.com/IBM/summit-health-analytics');
+        window.open('https://github.com/IBM/Example-health-analytics');
         break;
 
       default:
