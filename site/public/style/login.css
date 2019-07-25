@@ -29,6 +29,7 @@ h1 {
   /* border-radius: 6px; */
   border: #FFE3DB 1px solid;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .email {
@@ -109,7 +110,7 @@ h1 {
 
 .Fictionallogo {
   height: 200px;
-  padding:50px;
+  padding: 50px;
 }
 
 a {
@@ -138,10 +139,18 @@ a {
   margin: 10px;
   font-size: 14px;
   line-height: 20px;
-  color:pink;
+  color: pink;
 }
 
 .serverswitch {
   padding-top: 20px;
   text-align: justify;
+}
+
+.examplehealthlink {
+  color: #ff3e7a;
+  margin: 10px;
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: bold;
 }

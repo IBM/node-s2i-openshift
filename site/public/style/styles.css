@@ -168,16 +168,25 @@ menuitem {
   background: rgb(255, 255, 255);
   border-radius: 4px;
   transition: all 150ms ease-out 0s;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .boxheader {
   background: #F6F9FC;
-  height: 50px;
   width: 100%;
   align-items: center;
   display: flex;
   flex-direction: row;
-  font-size: 14px;
+  font-size: 14px min-height: 50px;
+  justify-content: space-between;
+}
+
+.listbox {
+  width: 300px;
+  margin-bottom: 0px;
+  overflow: scroll;
 }
 
 .boxicon {
@@ -188,6 +197,9 @@ menuitem {
 .boxlabel {
   color: #444;
   font-weight: bold;
+  padding: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 .boxitem {
@@ -527,17 +539,17 @@ a {
 
 .itemstep {
   height: 40px;
-text-align: center;
-width: 40px;
-background: #F6F9FC;
-border-radius: 20px;
-justify-content: center;
-align-items: center;
-align-content: center;
-display: flex;
-color: #444444;
-font-size: 14px;
-font-weight: bold;
+  text-align: center;
+  width: 40px;
+  background: #F6F9FC;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  color: #444444;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .stepbox {
