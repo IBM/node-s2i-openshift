@@ -122,7 +122,7 @@ function setModeOnServer(mode){
 function chooseCobol() {
   if (validURL(urlfield.value)) {
 
-    setModeOnServer(MODE.COBOL);
+    setModeOnServer(MODE.Z);
     highlightCobol();
 
     console.log('clicked cobol');
