@@ -28,8 +28,8 @@ var CURRENTMODE = MODE.TEST;
 var API_URL = ""
 
 app.post('/mode', function(req, res) {
-  logger.debug('called the mode endpoint ' + req.query.mode);
-  logger.debug('called the mode endpoint ' + req.query.url);
+  logger.debug('called the mode endpoint with mode: ' + req.query.mode);
+  logger.debug('called the mode endpoint with url: ' + req.query.url);
   CURRENTMODE = req.query.mode;
   API_URL = req.query.url;
   res.send({ "modes": MODE,

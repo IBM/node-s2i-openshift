@@ -3,6 +3,12 @@ var cobolbutton = document.getElementById('cobolbutton');
 var javabutton = document.getElementById('javabutton');
 var localbutton = document.getElementById('localbutton');
 
+var MODE = {
+  "TEST": 1,
+  "Z": 2,
+  "OPENSHIFT": 3
+}
+
 function checkurl() {
   if (validURL(urlfield.value)) {
     cobolbutton.style.opacity = 1;
@@ -13,6 +19,44 @@ function checkurl() {
   }
 }
 
+function getMode() {
+
+  var url = "./mode";
+
+  var http = new XMLHttpRequest();
+
+  http.open("GET", url, true);
+
+  http.onreadystatechange = function() {
+    if (http.readyState == 4 && http.status == 200) {
+      var patientdata = JSON.parse(http.responseText);
+      console.log(http.responseText);
+      var response = JSON.parse(http.responseText);
+      var mode = parseInt(response.mode);
+
+      switch (mode) {
+
+        case MODE.TEST:
+          highlightLocal();
+          break;
+
+        case MODE.Z:
+          highlightCobol();
+          break;
+
+        case MODE.OPENSHIFT:
+          highlightJava();
+          break;
+
+      }
+
+    }
+  }
+  http.send(null);
+
+}
+
+getMode();
 
 function validURL(str) {
   var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
@@ -24,77 +68,79 @@ function validURL(str) {
   return !!pattern.test(str);
 }
 
+function highlightJava() {
+  localbutton.classList.remove("settingsbuttonselected");
+  cobolbutton.classList.remove("settingsbuttonselected");
+  javabutton.classList.add('settingsbuttonselected');
+  javabutton.style.opacity = 1;
+}
+
 
 function chooseJava() {
   if (validURL(urlfield.value)) {
 
-    localbutton.classList.remove("settingsbuttonselected");
-    cobolbutton.classList.remove("settingsbuttonselected");
-    javabutton.classList.add('settingsbuttonselected');
-    sessionStorage.setItem("patientUImode", 3);
+    highlightJava();
+    setModeOnServer(MODE.OPENSHIFT);
+
+    // sessionStorage.setItem("patientUImode", 3);
 
     console.log('clicked java');
-
-
-    var url = "./mode";
-    var params = "mode=" + 2 + "&url=" + urlfield.value;
-
-    var http = new XMLHttpRequest();
-
-    http.open("POST", url + "?" + params, true);
-
-    http.onreadystatechange = function() {
-      if (http.readyState == 4 && http.status == 200) {
-
-        // sessionStorage.removeItem(patientid);
-        // sessionStorage.removeItem(patientusername);
-        sessionStorage.setItem("patientUImode", 3);
-
-        window.location = '/login.html';
-
-      }
-    }
-    http.send(null);
   }
+}
+
+function highlightCobol() {
+  localbutton.classList.remove("settingsbuttonselected");
+  javabutton.classList.remove("settingsbuttonselected");
+  cobolbutton.classList.add('settingsbuttonselected');
+  cobolbutton.style.opacity = 1;
+}
+
+function setModeOnServer(mode){
+
+  var url = "./mode";
+  var params = "mode=" + mode + "&url=" + urlfield.value;
+
+  var http = new XMLHttpRequest();
+
+  http.open("POST", url + "?" + params, true);
+
+  http.onreadystatechange = function() {
+    if (http.readyState == 4 && http.status == 200) {
+
+      // sessionStorage.removeItem(patientid);
+      // sessionStorage.removeItem(patientusername);
+      sessionStorage.setItem("patientUImode", mode);
+
+      window.location = '/login.html';
+
+    }
+  }
+  http.send(null);
+
 }
 
 function chooseCobol() {
   if (validURL(urlfield.value)) {
 
-    localbutton.classList.remove("settingsbuttonselected");
-    javabutton.classList.remove("settingsbuttonselected");
-    cobolbutton.classList.add('settingsbuttonselected');
+    setModeOnServer(MODE.COBOL);
+    highlightCobol();
 
     console.log('clicked cobol');
 
-    var url = "./mode";
-    var params = "mode=" + 2 + "&url=" + urlfield.value;
 
-    var http = new XMLHttpRequest();
-
-    http.open("POST", url + "?" + params, true);
-
-    http.onreadystatechange = function() {
-      if (http.readyState == 4 && http.status == 200) {
-
-        // sessionStorage.removeItem(patientid);
-        // sessionStorage.removeItem(patientusername);
-        sessionStorage.setItem("patientUImode", 2);
-
-        window.location = '/login.html';
-
-      }
-    }
-    http.send(null);
   }
 }
 
-function chooseLocal() {
-
+function highlightLocal() {
   localbutton.classList.add("settingsbuttonselected");
   javabutton.classList.remove("settingsbuttonselected");
   cobolbutton.classList.remove('settingsbuttonselected');
+}
 
-  sessionStorage.setItem("patientUImode", 1);
+function chooseLocal() {
+  setModeOnServer(MODE.TEST);
+  highlightLocal();
+  // sessionStorage.setItem("patientUImode", MODE.TEST);
+  // window.location = '/login.html';
   console.log('clicked local');
 }

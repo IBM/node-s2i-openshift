@@ -65,9 +65,10 @@ function login() {
         if (patientid.id) {
           sessionStorage.setItem("patientid", patientid.id);
           sessionStorage.setItem("patientusername", username);
-          window.location = '/';
-          return;
         }
+
+        window.location = '/';
+        return;
       }
     }
     http.send(null);
