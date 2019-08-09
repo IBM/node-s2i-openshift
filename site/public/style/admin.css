@@ -13,7 +13,8 @@
   flex-direction: row;
   width: 400px;
   height: 630px;
-  border: 1px solid #99DDE5;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.05) 0px 5px 15px 0px;
+transform: translate3d(0px, 0px, 0px);
 }
 
 .patients {
@@ -41,13 +42,13 @@
 }
 
 .totallabel {
-  color: #00ABC0;
+  color: #444;
   font-size: 14px;
   font-weight: bold;
 }
 
 .totalcount {
-  color: #0F4C81;
+  color: #444;
   font-weight: bold;
   font-size: 30px;
 }
@@ -59,7 +60,7 @@
 }
 
 .numberlabel {
-  color: #00ABC0;
+  color: #444;
   font-size: 14px;
   font-weight: bold;
 }
@@ -73,13 +74,13 @@
 }
 
 .percentageused {
-  border: 1px solid #99DDE5;
-  background: #99DDE5;
+  border: 1px solid #ffa18b;
+  background: #ffa18b;
 }
 
 .percentagefree {
-  border: 1px solid #99DDE5;
-  background: #CCEEF2;
+  border: 1px solid #ffa18b;
+  background: #ffd0c5;
 }
 
 .charts {
@@ -98,24 +99,7 @@
   margin-top: 20px;
 }
 
-.patientbox {
-  width: 300px;
-  margin-bottom: 0px;
-  overflow: scroll;
-}
-
-.patientboxheader {
-  background: #CCEEF2;
-    min-height: 50px;
-    border-bottom: 1px solid #99DDE5;
-    width: 100%;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    font-size: 14px;
-        justify-content: space-between;
-}
-
-.boxlabel{
-  padding:10px;
+.boxmod{
+margin-top:0;
+height: 630px;
 }
