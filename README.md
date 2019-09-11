@@ -58,15 +58,15 @@ Click on your new project. You should see a view that looks like this:
 
 ![project](./images/projectview.png)
 
-Click on the browse catalog button to see the images available to build with and scroll down to the Node image. Click on the 'Node.js' icon.
+Click on the browse catalog button to see the images available to build with and scroll down to the Node.js image. Click on the 'Node.js' icon.
 
 ![node](./images/node.png)
 
-Click through to the second step for configuration, and choose advanced options ( a hyperlink on the bottom line )
+Click through to the second step for configuration, and choose advanced options (a hyperlink on the bottom line).
 
 ![config](./images/advanced.png)
 
-You'll see and advanced form like this:
+You'll see an advanced form like this:
 
 ![form](./images/node-advanced-form.png)
 
@@ -74,10 +74,10 @@ Enter your forked Git Repository URL and `/site` for the Context Dir. Click 'Cre
 
 ![build](./images/build.png)
 
-When the build has deployed, click the External Traffic Route, and you should see the login screen:
+When the build has deployed, click the External Traffic Route and you should see the login screen:
 
 ![login](./images/login.png)
 
-You can enter any strings for username and password, for instance test/test ... because the app is just running in demo mode.
+You can enter any strings for username and password, for instance test/test... because the app is just running in demo mode.
 
-And you've deployed a node app to kubernetes using OpenShift S2I.
+And you've deployed a Node.js app to Kubernetes using OpenShift S2I.
