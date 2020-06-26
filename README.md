@@ -50,31 +50,23 @@ Next, you will need a fork of this repository. Scroll back up to the top of this
 
 Select your github user name from the pop-up window.
 
-To deploy your just-forked repository, go to the Web Console for your OpenShift cluster and create a project:
+To deploy your just-forked repository, go to the Web Console for your OpenShift cluster and create a project by clicking on the blue **Create Project** on the upper left from the **Home** --> **Projects** screen available from the navigation menu on the left:
 
 ![create project](./images/createproject.png)
 
-Click on your new project. You should see a view that looks like this:
+Now use the very top dropdown from the navigation menu on the left to switch from the **Administrator** view to **Developer**. From the **+Add** screen, select the **From Git** tile.
 
-![project](./images/projectview.png)
+![add](./images/add.png)
 
-Click on the browse catalog button to see the images available to build with and scroll down to the Node.js image. Click on the 'Node.js' icon.
+Use the URL of your forked repository in the **Git Repo URL** text imput. Click the **Show Advanced Git Options** bar to reveal those options, and specify `/site` as the **Context Dir**. Choose the **Node.js** tile from the list of Builder Images.
 
-![node](./images/node.png)
+![import](./images/import.png)
 
-Click through to the second step for configuration, and choose advanced options (a hyperlink on the bottom line).
-
-![config](./images/advanced.png)
-
-You'll see an advanced form like this:
-
-![form](./images/node-advanced-form.png)
-
-Enter your forked Git Repository URL and `/site` for the Context Dir. Click 'Create' at the bottom of the window to build and deploy the application. Scroll through to watch the build deploying:
+Scroll to the bottom of the screen and click the blue **Create** button at the bottom. OpenShift will take you to the **Topology** and once the deployment is finished, a green check will appear on the lower left of the Node icon.
 
 ![build](./images/build.png)
 
-When the build has deployed, click the External Traffic Route and you should see the login screen:
+When the build is complete, click on  **Open URL** on the upper right of the Node icon. You should see the login screen:
 
 ![login](./images/login.png)
 
