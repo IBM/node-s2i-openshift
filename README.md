@@ -1,5 +1,7 @@
 # Patient Health Records - App Modernization with RedHat OpenShift
 
+> A variation of this repo with a Dockerfile is available here: https://github.com/IBM/node-build-config-openshift
+
 This project is a patient records user interface for a conceptual health records system. The UI is programmed with open standards JavaScript and modern, universal CSS, and HTML5 Canvas for layout.
 
 The UI is served by a simple Node.js Express server, and the overall project goals are:
